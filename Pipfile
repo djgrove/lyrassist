@@ -1,0 +1,17 @@
+[[source]]
+url = "https://pypi.python.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[dev-packages]
+
+[packages]
+
+pandas = "==0.22.0"
+"beautifulsoup4" = "==4.6.0"
+"bs4" = "==0.0.1"
+Flask = "==1.0.2"
+lxml = "==4.2.2"
+requests = "==2.19.1"
+"urllib2" = "==1.23"
+"python-firebase" = "==1.2"
