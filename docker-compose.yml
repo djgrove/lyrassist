@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  angular-client:
+    # this is our custom drupal image residing in
+    # wcms-drupal-apache/Dockerfile
+    build: ./frontend
+    container_name: pybots-angular
+    ports:
+      - '4200:4200'
+   # volumes:
+      #- ./frontend/d7_calpoly_responsive:/var/www/html/sites
+        #/all/themes/cpstandard_r/
