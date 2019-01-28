@@ -14,7 +14,8 @@ struct Artists: Codable {
 
 struct Artist: Codable {
     var name: String
-    var data: String?
+    var url: String?
+    var song: String?
 }
 
 class ArtistCell: UITableViewCell {
@@ -43,11 +44,11 @@ class ArtistsTableViewController: UITableViewController {
                 let artistDict = try decoder.decode([String:[String:[String:String]]].self, from: data)
                 if let artists = artistDict["artists"] {
                     for artist in artists {
-                        print(artist)
+//                        print(artist)
                         let name = artist.key
                         let entry = artist.value
-                        let data = entry["data"]
-                        self.artists.append(Artist(name: name, data: data))
+                        let url = entry["url"]
+                        self.artists.append(Artist(name: name, url: url, song: nil))
                     }
                 }
                 self.artists = self.artists.sorted(by: { $0.name < $1.name })
