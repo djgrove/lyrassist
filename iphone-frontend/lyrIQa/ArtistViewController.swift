@@ -20,7 +20,41 @@ class ArtistViewController: UIViewController {
         // Do any additional setup after loading the view.
         if let artist = artist {
             self.navigationItem.title = artist.name
-            self.songTextView.text = artist.data
+            if let song = artist.song {
+                self.songTextView.text = song
+            }
+            else {
+                //Query, use delegation to store song in artist object
+                // TODO: Setup delegation to store song in cache
+                if let urlStr = artist.url, let url = URL(string: urlStr) {
+                    let task = URLSession.shared.dataTask(with: url) { [weak self] data, response, error in
+                        guard let this = self else { return }
+                        DispatchQueue.main.async {
+                            if let data = data{
+                                do {
+                                let json = try JSONSerialization.jsonObject(with: data, options: [])
+                                    if let jsonData = json as? [String:Any] {
+                                        this.songTextView.text = jsonData["data"] as? String
+                                    }
+//                                let songData = String(decoding: data, as: UTF8.self)
+//                                this.songTextView.text = songData
+                                }
+                                catch let jsonError {
+                                    fatalError(jsonError.localizedDescription)
+                                }
+                            }
+                            else {
+                                this.songTextView.text = error?.localizedDescription
+                            }
+                        }
+                    }
+                    
+                    task.resume()
+                }
+                else {
+                    fatalError("Received invalid url for artist: \(artist.name)")
+                }
+            }
         }
     }
     
