@@ -8,11 +8,16 @@
 
 import UIKit
 
+protocol ArtistDelegate {
+    func updateArtist(id: Int, withSong: String)
+}
+
 class ArtistViewController: UIViewController {
 
     
     @IBOutlet var songTextView: UITextView!
     var artist:Artist?
+    var artistDelegate: ArtistDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,10 +39,11 @@ class ArtistViewController: UIViewController {
                                 do {
                                 let json = try JSONSerialization.jsonObject(with: data, options: [])
                                     if let jsonData = json as? [String:Any] {
-                                        this.songTextView.text = jsonData["data"] as? String
+                                        if let song = jsonData["data"] as? String {
+                                            this.songTextView.text = song
+                                            this.artistDelegate?.updateArtist(id: artist.id, withSong: song)
+                                        }
                                     }
-//                                let songData = String(decoding: data, as: UTF8.self)
-//                                this.songTextView.text = songData
                                 }
                                 catch let jsonError {
                                     fatalError(jsonError.localizedDescription)

@@ -13,6 +13,7 @@ struct Artists: Codable {
 }
 
 struct Artist: Codable {
+    var id: Int
     var name: String
     var url: String?
     var song: String?
@@ -22,9 +23,10 @@ class ArtistCell: UITableViewCell {
     var artist: Artist?
 }
 
-class ArtistsTableViewController: UITableViewController {
+class ArtistsTableViewController: UITableViewController, ArtistDelegate {
 
     var artists = [Artist]()
+    var idCount = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,7 +50,8 @@ class ArtistsTableViewController: UITableViewController {
                         let name = artist.key
                         let entry = artist.value
                         let url = entry["url"]
-                        self.artists.append(Artist(name: name, url: url, song: nil))
+                        self.artists.append(Artist(id: idCount, name: name, url: url, song: nil))
+                        idCount += 1
                     }
                 }
                 self.artists = self.artists.sorted(by: { $0.name < $1.name })
@@ -88,9 +91,25 @@ class ArtistsTableViewController: UITableViewController {
         if segue.identifier == "ArtistSelected" {
             if let artistVC = segue.destination as? ArtistViewController {
                 if let cell = sender as? ArtistCell {
-                    artistVC.artist = cell.artist
+                    if let artistId = cell.artist?.id {
+                        let index = self.artists.firstIndex(where: { $0.id == artistId })
+                        artistVC.artist = self.artists[index!]
+                        artistVC.artistDelegate = self
+                    }
                 }
             }
         }
     }
+    
+    // MARK: Artist Delegate
+    
+    func updateArtist(id: Int, withSong song: String) {
+        if let index = self.artists.firstIndex(where: { $0.id == id }) {
+            self.artists[index].song = song
+        }
+        else {
+            print("Artist lookup failed in updateArtist.")
+        }
+    }
+
 }
