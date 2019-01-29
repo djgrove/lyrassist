@@ -8,7 +8,7 @@ export class DataService {
 
   constructor(private http: HttpClient) { }
 
-  getUsers() {
-    return this.http.get('https://reqres.in/api/users')
+  getArtists() {
+    return this.http.get('https://1iou0tajke.execute-api.us-east-2.amazonaws.com/prod/list')
   }
 }
