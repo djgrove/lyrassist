@@ -1,7 +1,7 @@
 <h1>Home</h1>
 
 <ul *ngIf="artists">
-  <a routerLink="create"><li *ngFor="let artist of artists.data">
+  <a *ngFor="let artist of artists.data" [routerLink]="['create', artist.url_name]"><li>
     <img [src]="artist.avatar">
     <p>{{ artist.name }} </p>
   </li></a>
