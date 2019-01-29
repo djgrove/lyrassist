@@ -11,4 +11,9 @@ export class DataService {
   getArtists() {
     return this.http.get('https://1iou0tajke.execute-api.us-east-2.amazonaws.com/prod/list')
   }
+
+  getLyrics(artist : string) {
+    return this.http.get('https://1iou0tajke.execute-api.us-east-2.amazonaws.com/prod/generate?artist=' + artist)
+  }
+
 }
