@@ -1,8 +1,8 @@
 <h1>Home</h1>
 
-<ul *ngIf="users">
-  <li *ngFor="let user of users.data">
-    <img [src]="user.avatar">
-    <p>{{ user.first_name }} {{ user.last_name }} </p>
-  </li>
+<ul *ngIf="artists">
+  <a routerLink="create"><li *ngFor="let artist of artists.data">
+    <img [src]="artist.avatar">
+    <p>{{ artist.name }} </p>
+  </li></a>
 </ul>
