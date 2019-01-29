@@ -10,7 +10,7 @@
             "url": "https://1iou0tajke.execute-api.us-east-2.amazonaws.com/prod/generate?artist=green-day"
         },
         "John Legend": {
-            "url": "https://1iou0tajke.execute-api.us-east-2.amazonaws.com/prod/generate?artist=john-legends"
+            "url": "https://1iou0tajke.execute-api.us-east-2.amazonaws.com/prod/generate?artist=john-legend"
         },
         "Justin Timberlake": {
             "url": "https://1iou0tajke.execute-api.us-east-2.amazonaws.com/prod/generate?artist=justin-timberlake"
