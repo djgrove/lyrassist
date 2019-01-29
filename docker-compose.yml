@@ -1,13 +1,22 @@
 version: '3'
 
 services:
-  angular-client:
+  backend:
     # this is our custom drupal image residing in
     # wcms-drupal-apache/Dockerfile
-    build: ./frontend
-    container_name: pybots-angular
+    image: quiltdata/lambda
+    container_name: aws-lambda
+  frontend:
+    build: ./angular-frontend
+    container_name: angular-client
+      # This line maps the contents of the client folder into the container.
+    volumes:
+      - ./angular-frontend:/usr/src/app
+  nginx:
+    build: ./nginx
+    # Map Nginx port 80 to the local machine's port 80
     ports:
-      - '4200:4200'
-   # volumes:
-      #- ./frontend/d7_calpoly_responsive:/var/www/html/sites
-        #/all/themes/cpstandard_r/
+      - "80:80"
+    # Link the client container so that Nginx will have access to it
+    links:
+      - frontend

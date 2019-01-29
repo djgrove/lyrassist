@@ -1,13 +1,15 @@
-FROM node
-
+FROM node:11
+# Create the target directory in the imahge
 RUN mkdir -p /usr/src/app
-RUN npm i -g @angular/cli
-
+# Set the created directory as the working directory
 WORKDIR /usr/src/app
-
-#COPY package.json /usr/src/app
-#RUN npm install
-
+# Copy the package.json inside the working directory
+COPY package.json /usr/src/app
+# Install required dependencies
+RUN npm install
+# Copy the client application source files. You can use .dockerignore to exlcude files. Works just as .gitignore does.
+COPY . /usr/src/app
+# Open port 4200. This is the port that our development server uses
 EXPOSE 4200
-
-CMD ["ng serve --host 0.0.0.0"]
+# Start the application. This is the same as running ng serve.
+CMD ["npm", "start"]
