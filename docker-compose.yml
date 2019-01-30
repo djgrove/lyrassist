@@ -5,10 +5,8 @@ services:
     # this is our custom drupal image residing in
     # wcms-drupal-apache/Dockerfile
     image: quiltdata/lambda
-    container_name: aws-lambda
   frontend:
     build: ./angular-frontend
-    container_name: angular-client
       # This line maps the contents of the client folder into the container.
     volumes:
       - ./angular-frontend:/usr/src/app
