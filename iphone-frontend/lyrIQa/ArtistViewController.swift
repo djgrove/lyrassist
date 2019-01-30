@@ -41,7 +41,7 @@ class ArtistViewController: UIViewController {
                                     if let jsonData = json as? [String:Any] {
                                         if let song = jsonData["data"] as? String {
                                             this.songTextView.text = song
-                                            this.artistDelegate?.updateArtist(id: artist.id, withSong: song)
+                                            this.artistDelegate?.updateArtist(id: artist.id!, withSong: song)
                                         }
                                     }
                                 }

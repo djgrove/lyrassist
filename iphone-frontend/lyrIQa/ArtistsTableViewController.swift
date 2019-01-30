@@ -8,15 +8,23 @@
 
 import UIKit
 
-struct Artists: Codable {
-    var artists: [Artist]
+struct Artist: Codable {
+    var id: Int?
+    var name: String
+    var urlName: String
+    var url: String?
+    var avatarURL: String
+    var song: String?
+    
+    enum CodingKeys: String, CodingKey {
+        case id, name, url, song, urlName
+        case avatarURL = "avatar"
+    }
 }
 
-struct Artist: Codable {
-    var id: Int
-    var name: String
-    var url: String?
-    var song: String?
+struct ArtistListResponse: Codable {
+    var statusCode: Int
+    var data: [Artist]
 }
 
 class ArtistCell: UITableViewCell {
@@ -26,6 +34,7 @@ class ArtistCell: UITableViewCell {
 class ArtistsTableViewController: UITableViewController, ArtistDelegate {
 
     var artists = [Artist]()
+    var components = URLComponents()
     var idCount = 0
     
     override func viewDidLoad() {
@@ -36,31 +45,53 @@ class ArtistsTableViewController: UITableViewController, ArtistDelegate {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        components.scheme = "https"
+        components.host = "1iou0tajke.execute-api.us-east-2.amazonaws.com"
+        components.path = "/prod/list"
         
-        if let path = Bundle.main.path(forResource: "lyriqa", ofType: "json") {
-            do {
-                let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
-                
-                // FIXME: Restructure JSON
-                let decoder = JSONDecoder()
-                let artistDict = try decoder.decode([String:[String:[String:String]]].self, from: data)
-                if let artists = artistDict["artists"] {
-                    for artist in artists {
-//                        print(artist)
-                        let name = artist.key
-                        let entry = artist.value
-                        let url = entry["url"]
-                        self.artists.append(Artist(id: idCount, name: name, url: url, song: nil))
-                        idCount += 1
+        guard let url = components.url else {
+            preconditionFailure("Failed to construct URL")
+        }
+        
+        let task = URLSession.shared.dataTask(with: url) {
+            [weak self] data, response, error in
+            guard let this = self else { return }
+            
+            if let data = data {
+//                print(String(decoding: data, as: UTF8.self))
+                do {
+                    let decoder = JSONDecoder()
+                    decoder.keyDecodingStrategy = .convertFromSnakeCase
+                    let artistResponse = try decoder.decode(ArtistListResponse.self, from: data)
+                    var artistComponents = URLComponents(url: this.components.url!, resolvingAgainstBaseURL: false)
+                    artistComponents?.path = "/generate"
+                    for jsonArtist in artistResponse.data {
+                        artistComponents?.queryItems = [URLQueryItem(name: "artist", value: jsonArtist.urlName)]
+                        guard let artistURL = artistComponents?.url else {
+                            preconditionFailure("Failed to construct artistURL for \(jsonArtist.name)")
+                        }
+                        let artist = Artist(id: this.idCount,
+                                            name: jsonArtist.name,
+                                            urlName: jsonArtist.urlName,
+                                            url: artistURL.absoluteString,
+                                            avatarURL: jsonArtist.avatarURL,
+                                            song: nil)
+                        this.artists.append(artist)
+                        this.idCount += 1
+                    }
+                    print(this.artists)
+                    this.artists = this.artists.sorted(by: { $0.name < $1.name })
+                    DispatchQueue.main.async {
+                        this.tableView.reloadData()
                     }
                 }
-                self.artists = self.artists.sorted(by: { $0.name < $1.name })
-                self.tableView.reloadData()
-            }
-            catch let jsonError {
-                fatalError("\(jsonError.localizedDescription)")
+                catch let jsonError {
+                    fatalError(jsonError.localizedDescription)
+                }
             }
         }
+        
+        task.resume()
     }
 
     // MARK: - Table view data source
