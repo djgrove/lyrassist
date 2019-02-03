@@ -21,8 +21,7 @@ export class CreateComponent implements OnInit {
 
     // request lyrics for this artist from our REST API
     this.data.getLyrics(this.artistURL).subscribe(data => {
-      this.lyrics = data
-      console.log(this.lyrics)
+      this.lyrics = data.data;
     })
   }
 
