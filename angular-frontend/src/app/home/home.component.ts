@@ -15,7 +15,6 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     this.data.getArtists().subscribe(data => {
       this.artists = data
-      console.log(this.artists)
     })
   }
 
