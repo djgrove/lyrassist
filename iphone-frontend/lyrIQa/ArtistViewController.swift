@@ -32,29 +32,32 @@ class ArtistViewController: UIViewController {
                 //Query, use delegation to store song in artist object
                 // TODO: Setup delegation to store song in cache
                 if let urlStr = artist.url, let url = URL(string: urlStr) {
-                    let task = URLSession.shared.dataTask(with: url) { [weak self] data, response, error in
+                    let task = URLSession.shared.dataTask(with: url) {
+                        [weak self] data, response, error in
                         guard let this = self else { return }
-                        DispatchQueue.main.async {
-                            if let data = data{
-                                do {
-                                let json = try JSONSerialization.jsonObject(with: data, options: [])
-                                    if let jsonData = json as? [String:Any] {
-                                        if let song = jsonData["data"] as? String {
+                        if let data = data{
+                            do {
+                            let json = try JSONSerialization.jsonObject(with: data, options: [])
+                                if let jsonData = json as? [String:Any] {
+                                    if let song = jsonData["data"] as? String {
+                                        DispatchQueue.main.async {
                                             this.songTextView.text = song
-                                            this.artistDelegate?.updateArtist(id: artist.id!, withSong: song)
                                         }
+                                        this.artistDelegate?.updateArtist(id: artist.id!, withSong: song)
+                                    }
+                                    else {
+//                                        preconditionFailure("Could not get song from json for \(artist.name)")
                                     }
                                 }
-                                catch let jsonError {
-                                    fatalError(jsonError.localizedDescription)
-                                }
                             }
-                            else {
-                                this.songTextView.text = error?.localizedDescription
+                            catch let jsonError {
+                                fatalError(jsonError.localizedDescription)
                             }
                         }
+                        else {
+                            this.songTextView.text = error?.localizedDescription
+                        }
                     }
-                    
                     task.resume()
                 }
                 else {
