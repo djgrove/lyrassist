@@ -64,7 +64,7 @@ class ArtistsTableViewController: UITableViewController, ArtistDelegate {
                     decoder.keyDecodingStrategy = .convertFromSnakeCase
                     let artistResponse = try decoder.decode(ArtistListResponse.self, from: data)
                     var artistComponents = URLComponents(url: this.components.url!, resolvingAgainstBaseURL: false)
-                    artistComponents?.path = "/generate"
+                    artistComponents?.path = "/prod/generate"
                     for jsonArtist in artistResponse.data {
                         artistComponents?.queryItems = [URLQueryItem(name: "artist", value: jsonArtist.urlName)]
                         guard let artistURL = artistComponents?.url else {
@@ -79,7 +79,7 @@ class ArtistsTableViewController: UITableViewController, ArtistDelegate {
                         this.artists.append(artist)
                         this.idCount += 1
                     }
-                    print(this.artists)
+//                    print(this.artists)
                     this.artists = this.artists.sorted(by: { $0.name < $1.name })
                     DispatchQueue.main.async {
                         this.tableView.reloadData()
