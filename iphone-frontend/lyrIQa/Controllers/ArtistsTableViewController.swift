@@ -8,25 +8,6 @@
 
 import UIKit
 
-struct Artist: Codable {
-    var id: Int?
-    var name: String
-    var urlName: String
-    var url: String?
-    var avatarURL: String
-    var song: String?
-    
-    enum CodingKeys: String, CodingKey {
-        case id, name, url, song, urlName
-        case avatarURL = "avatar"
-    }
-}
-
-struct ArtistListResponse: Codable {
-    var statusCode: Int
-    var data: [Artist]
-}
-
 class ArtistCell: UITableViewCell {
     var artist: Artist?
 }
@@ -39,12 +20,13 @@ class ArtistsTableViewController: UITableViewController, ArtistDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "Back", style: .plain, target: nil, action: nil)
+        
+        getArtists()
+    }
+    
+    func getArtists() {
         components.scheme = "https"
         components.host = "1iou0tajke.execute-api.us-east-2.amazonaws.com"
         components.path = "/prod/list"
@@ -58,7 +40,7 @@ class ArtistsTableViewController: UITableViewController, ArtistDelegate {
             guard let this = self else { return }
             
             if let data = data {
-//                print(String(decoding: data, as: UTF8.self))
+                //                print(String(decoding: data, as: UTF8.self))
                 do {
                     let decoder = JSONDecoder()
                     decoder.keyDecodingStrategy = .convertFromSnakeCase
@@ -75,11 +57,12 @@ class ArtistsTableViewController: UITableViewController, ArtistDelegate {
                                             urlName: jsonArtist.urlName,
                                             url: artistURL.absoluteString,
                                             avatarURL: jsonArtist.avatarURL,
+                                            avatarImage: nil,
                                             song: nil)
                         this.artists.append(artist)
                         this.idCount += 1
                     }
-//                    print(this.artists)
+                    //                    print(this.artists)
                     this.artists = this.artists.sorted(by: { $0.name < $1.name })
                     DispatchQueue.main.async {
                         this.tableView.reloadData()
@@ -92,6 +75,7 @@ class ArtistsTableViewController: UITableViewController, ArtistDelegate {
         }
         
         task.resume()
+
     }
 
     // MARK: - Table view data source
@@ -134,13 +118,21 @@ class ArtistsTableViewController: UITableViewController, ArtistDelegate {
     
     // MARK: Artist Delegate
     
-    func updateArtist(id: Int, withSong song: String) {
+    func updateArtistSong(id: Int, withSong song: String) {
         if let index = self.artists.firstIndex(where: { $0.id == id }) {
             self.artists[index].song = song
         }
         else {
-            print("Artist lookup failed in updateArtist.")
+            print("Artist lookup failed in updateArtistSong.")
         }
     }
-
+    
+    func updateArtistImage(id: Int, withImage image: UIImage) {
+        if let index = self.artists.firstIndex(where: { $0.id == id }) {
+            self.artists[index].avatarImage = image
+        }
+        else {
+            print("Artist lookup failed in updateArtistImage.")
+        }
+    }
 }
