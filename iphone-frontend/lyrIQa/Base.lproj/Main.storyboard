@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--lyrIQa-->
+        <!--lyrAssist-->
         <scene sceneID="Ggh-Hv-4Nt">
             <objects>
                 <tableViewController id="Ihh-LO-tRb" customClass="ArtistsTableViewController" customModule="lyrIQa" customModuleProvider="target" sceneMemberID="viewController">
@@ -36,16 +36,16 @@
                             <outlet property="delegate" destination="Ihh-LO-tRb" id="NlL-oo-6lC"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="lyrIQa" id="g5C-HJ-T2Q"/>
+                    <navigationItem key="navigationItem" title="lyrAssist" id="g5C-HJ-T2Q"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U91-h7-fly" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1068" y="-672"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Lyr Assist Nav Controller-->
         <scene sceneID="qjc-kg-uCA">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="CCx-20-as0" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="CCx-20-as0" customClass="lyrAssistNavController" customModule="lyrIQa" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Udu-N9-trn">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -69,7 +69,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Loading..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Fao-Ev-zos">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="559"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -84,6 +84,8 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="2hZ-vA-2yE"/>
                     </view>
+                    <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="songTextView" destination="Fao-Ev-zos" id="N6G-NQ-Vhn"/>
                     </connections>
