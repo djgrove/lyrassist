@@ -21,7 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		D549DB3621EE9964007E8D5F /* lyrIQa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = lyrIQa.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D549DB3621EE9964007E8D5F /* lyrAssist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = lyrAssist.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D549DB3921EE9964007E8D5F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D549DB3E21EE9964007E8D5F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D549DB4021EE9966007E8D5F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -50,7 +50,7 @@
 		D549DB2D21EE9964007E8D5F = {
 			isa = PBXGroup;
 			children = (
-				D549DB3821EE9964007E8D5F /* lyrIQa */,
+				D549DB3821EE9964007E8D5F /* lyrAssist */,
 				D549DB3721EE9964007E8D5F /* Products */,
 			);
 			sourceTree = "<group>";
@@ -58,12 +58,12 @@
 		D549DB3721EE9964007E8D5F /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D549DB3621EE9964007E8D5F /* lyrIQa.app */,
+				D549DB3621EE9964007E8D5F /* lyrAssist.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		D549DB3821EE9964007E8D5F /* lyrIQa */ = {
+		D549DB3821EE9964007E8D5F /* lyrAssist */ = {
 			isa = PBXGroup;
 			children = (
 				D549DB3921EE9964007E8D5F /* AppDelegate.swift */,
@@ -76,7 +76,7 @@
 				D5614DC121FEA9F5007FD9B2 /* lyriqa.json */,
 				D549DB4521EE9966007E8D5F /* Info.plist */,
 			);
-			path = lyrIQa;
+			path = lyrAssist;
 			sourceTree = "<group>";
 		};
 		D5F963BB2215FE5C0028C697 /* Models */ = {
@@ -109,9 +109,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		D549DB3521EE9964007E8D5F /* lyrIQa */ = {
+		D549DB3521EE9964007E8D5F /* lyrAssist */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D549DB4821EE9966007E8D5F /* Build configuration list for PBXNativeTarget "lyrIQa" */;
+			buildConfigurationList = D549DB4821EE9966007E8D5F /* Build configuration list for PBXNativeTarget "lyrAssist" */;
 			buildPhases = (
 				D549DB3221EE9964007E8D5F /* Sources */,
 				D549DB3321EE9964007E8D5F /* Frameworks */,
@@ -121,9 +121,9 @@
 			);
 			dependencies = (
 			);
-			name = lyrIQa;
-			productName = lyrIQa;
-			productReference = D549DB3621EE9964007E8D5F /* lyrIQa.app */;
+			name = lyrAssist;
+			productName = lyrAssist;
+			productReference = D549DB3621EE9964007E8D5F /* lyrAssist.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -154,7 +154,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				D549DB3521EE9964007E8D5F /* lyrIQa */,
+				D549DB3521EE9964007E8D5F /* lyrAssist */,
 			);
 		};
 /* End PBXProject section */
@@ -332,12 +332,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = CM86EZ9GM9;
-				INFOPLIST_FILE = lyrIQa/Info.plist;
+				INFOPLIST_FILE = lyrAssist/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = amcinnis.lyrIQa;
+				PRODUCT_BUNDLE_IDENTIFIER = amcinnis.lyrAssist;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -350,12 +350,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = CM86EZ9GM9;
-				INFOPLIST_FILE = lyrIQa/Info.plist;
+				INFOPLIST_FILE = lyrAssist/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = amcinnis.lyrIQa;
+				PRODUCT_BUNDLE_IDENTIFIER = amcinnis.lyrAssist;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -374,7 +374,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D549DB4821EE9966007E8D5F /* Build configuration list for PBXNativeTarget "lyrIQa" */ = {
+		D549DB4821EE9966007E8D5F /* Build configuration list for PBXNativeTarget "lyrAssist" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D549DB4921EE9966007E8D5F /* Debug */,
