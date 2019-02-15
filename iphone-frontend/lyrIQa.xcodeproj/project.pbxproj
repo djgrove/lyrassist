@@ -141,7 +141,7 @@
 					};
 				};
 			};
-			buildConfigurationList = D549DB3121EE9964007E8D5F /* Build configuration list for PBXProject "lyrIQa" */;
+			buildConfigurationList = D549DB3121EE9964007E8D5F /* Build configuration list for PBXProject "lyrAssist" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -365,7 +365,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		D549DB3121EE9964007E8D5F /* Build configuration list for PBXProject "lyrIQa" */ = {
+		D549DB3121EE9964007E8D5F /* Build configuration list for PBXProject "lyrAssist" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D549DB4621EE9966007E8D5F /* Debug */,
