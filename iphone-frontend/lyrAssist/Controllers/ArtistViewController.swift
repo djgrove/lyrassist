@@ -1,6 +1,6 @@
 //
 //  ArtistViewController.swift
-//  lyrIQa
+//  lyrAssist
 //
 //  Created by Austin McInnis on 1/27/19.
 //  Copyright © 2019 Austin McInnis. All rights reserved.
@@ -50,6 +50,7 @@ class ArtistViewController: UIViewController {
         
     }
     
+    // MARK: - Network Functions
     func downloadArtistImage(url: URL) {
         let avatarTask = URLSession.shared.dataTask(with: url) {
             [weak self] data, response, error in
@@ -102,6 +103,7 @@ class ArtistViewController: UIViewController {
         songTask.resume()
     }
     
+    // MARK: - Navigation Bar Config
     func setupInfoButton() {
         let infoButton = UIButton(type: .infoLight)
         infoButton.addTarget(self, action: #selector(infoButtonTapped), for: .touchUpInside)
@@ -114,6 +116,7 @@ class ArtistViewController: UIViewController {
         performSegue(withIdentifier: "BioSegue", sender: nil)
     }
     
+    // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let navVC = segue.destination as? lyrAssistNavController {
             if let bioViewController = navVC.topViewController as? ArtistBioViewController {
