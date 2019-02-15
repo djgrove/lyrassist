@@ -1,6 +1,6 @@
 //
 //  ArtistsTableViewController.swift
-//  lyrIQa
+//  lyrAssist
 //
 //  Created by Austin McInnis on 1/27/19.
 //  Copyright © 2019 Austin McInnis. All rights reserved.
@@ -26,6 +26,7 @@ class ArtistsTableViewController: UITableViewController, ArtistDelegate {
         getArtists()
     }
     
+    // MARK: - Network Functions
     func getArtists() {
         components.scheme = "https"
         components.host = "1iou0tajke.execute-api.us-east-2.amazonaws.com"

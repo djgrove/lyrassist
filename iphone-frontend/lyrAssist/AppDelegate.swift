@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  lyrIQa
+//  lyrAssist
 //
 //  Created by Austin McInnis on 1/15/19.
 //  Copyright © 2019 Austin McInnis. All rights reserved.
