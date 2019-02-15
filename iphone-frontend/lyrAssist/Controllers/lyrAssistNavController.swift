@@ -1,6 +1,6 @@
 //
 //  lyrAssistNavController.swift
-//  lyrIQa
+//  lyrAssist
 //
 //  Created by Austin McInnis on 2/14/19.
 //  Copyright © 2019 Austin McInnis. All rights reserved.

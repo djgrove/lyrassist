@@ -1,6 +1,6 @@
 //
 //  ArtistBioViewController.swift
-//  lyrIQa
+//  lyrAssist
 //
 //  Created by Austin McInnis on 2/14/19.
 //  Copyright © 2019 Austin McInnis. All rights reserved.
@@ -30,6 +30,7 @@ class ArtistBioViewController: UIViewController {
         }
     }
     
+    // MARK: - Navigation
     @IBAction func doneButtonPressed(_ sender: UIBarButtonItem) {
         self.dismiss(animated: true, completion: nil)
     }
