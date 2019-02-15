@@ -106,6 +106,14 @@ class ArtistViewController: UIViewController {
     }
     
     @objc func infoButtonTapped() {
-        print("Info button tapped")
+        performSegue(withIdentifier: "BioSegue", sender: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let navVC = segue.destination as? lyrAssistNavController {
+            if let bioViewController = navVC.topViewController as? ArtistBioViewController {
+                bioViewController.artist = artist                
+            }
+        }
     }
 }

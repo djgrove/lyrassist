@@ -16,6 +16,8 @@
 		D5614DC821FEDFAD007FD9B2 /* ArtistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5614DC721FEDFAD007FD9B2 /* ArtistViewController.swift */; };
 		D5F963B82215F9BF0028C697 /* lyrAssistNavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5F963B72215F9BF0028C697 /* lyrAssistNavController.swift */; };
 		D5F963BA2215FE1E0028C697 /* Artist.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5F963B92215FE1E0028C697 /* Artist.swift */; };
+		D5F963BF221629D90028C697 /* ArtistBioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5F963BE221629D90028C697 /* ArtistBioViewController.swift */; };
+		D5F963C2221639090028C697 /* lyrAssistColorScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5F963C1221639090028C697 /* lyrAssistColorScheme.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +32,8 @@
 		D5614DC721FEDFAD007FD9B2 /* ArtistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistViewController.swift; sourceTree = "<group>"; };
 		D5F963B72215F9BF0028C697 /* lyrAssistNavController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = lyrAssistNavController.swift; sourceTree = "<group>"; };
 		D5F963B92215FE1E0028C697 /* Artist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Artist.swift; sourceTree = "<group>"; };
+		D5F963BE221629D90028C697 /* ArtistBioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistBioViewController.swift; sourceTree = "<group>"; };
+		D5F963C1221639090028C697 /* lyrAssistColorScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = lyrAssistColorScheme.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +70,7 @@
 				D549DB3D21EE9964007E8D5F /* Main.storyboard */,
 				D5F963BC2215FE6B0028C697 /* Controllers */,
 				D5F963BB2215FE5C0028C697 /* Models */,
+				D5F963C0221638BE0028C697 /* Style */,
 				D549DB4021EE9966007E8D5F /* Assets.xcassets */,
 				D549DB4221EE9966007E8D5F /* LaunchScreen.storyboard */,
 				D5614DC121FEA9F5007FD9B2 /* lyriqa.json */,
@@ -85,11 +90,20 @@
 		D5F963BC2215FE6B0028C697 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				D5F963BE221629D90028C697 /* ArtistBioViewController.swift */,
 				D5614DC321FEABA6007FD9B2 /* ArtistsTableViewController.swift */,
 				D5614DC721FEDFAD007FD9B2 /* ArtistViewController.swift */,
 				D5F963B72215F9BF0028C697 /* lyrAssistNavController.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		D5F963C0221638BE0028C697 /* Style */ = {
+			isa = PBXGroup;
+			children = (
+				D5F963C1221639090028C697 /* lyrAssistColorScheme.swift */,
+			);
+			path = Style;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -168,7 +182,9 @@
 				D549DB3A21EE9964007E8D5F /* AppDelegate.swift in Sources */,
 				D5F963B82215F9BF0028C697 /* lyrAssistNavController.swift in Sources */,
 				D5F963BA2215FE1E0028C697 /* Artist.swift in Sources */,
+				D5F963BF221629D90028C697 /* ArtistBioViewController.swift in Sources */,
 				D5614DC821FEDFAD007FD9B2 /* ArtistViewController.swift in Sources */,
+				D5F963C2221639090028C697 /* lyrAssistColorScheme.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
