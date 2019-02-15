@@ -88,11 +88,90 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="songTextView" destination="Fao-Ev-zos" id="N6G-NQ-Vhn"/>
+                        <segue destination="559-kC-evs" kind="presentation" identifier="BioSegue" id="fdF-Vk-XQZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MrQ-VK-O3n" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1864.8" y="-672.41379310344837"/>
+        </scene>
+        <!--Artist Bio View Controller-->
+        <scene sceneID="qdr-3i-u7Q">
+            <objects>
+                <viewController id="Gpr-8f-En6" customClass="ArtistBioViewController" customModule="lyrIQa" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="BhF-ft-QDT">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="iCR-T8-8J0">
+                                <rect key="frame" x="100" y="78" width="175" height="174"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="175" id="4Fw-eE-e32"/>
+                                    <constraint firstAttribute="height" constant="174" id="laH-pz-He3"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Artist Name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lcJ-Jw-3r1">
+                                <rect key="frame" x="142" y="272" width="91" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="zec-gh-k3D">
+                                <rect key="frame" x="16" y="301" width="343" height="347"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="zec-gh-k3D" firstAttribute="leading" secondItem="sRK-m4-XE0" secondAttribute="leading" constant="16" id="26F-hF-aJV"/>
+                            <constraint firstItem="sRK-m4-XE0" firstAttribute="trailing" secondItem="zec-gh-k3D" secondAttribute="trailing" constant="16" id="5nL-b9-xLL"/>
+                            <constraint firstItem="sRK-m4-XE0" firstAttribute="bottom" secondItem="zec-gh-k3D" secondAttribute="bottom" constant="19" id="73S-jR-04l"/>
+                            <constraint firstItem="lcJ-Jw-3r1" firstAttribute="top" secondItem="iCR-T8-8J0" secondAttribute="bottom" constant="20" id="BW2-RS-QSU"/>
+                            <constraint firstItem="zec-gh-k3D" firstAttribute="top" secondItem="lcJ-Jw-3r1" secondAttribute="bottom" constant="8.5" id="Ha6-PB-d0K"/>
+                            <constraint firstItem="iCR-T8-8J0" firstAttribute="centerX" secondItem="lcJ-Jw-3r1" secondAttribute="centerX" id="I3T-wZ-rmN"/>
+                            <constraint firstItem="lcJ-Jw-3r1" firstAttribute="centerX" secondItem="sRK-m4-XE0" secondAttribute="centerX" id="WLO-mq-kNe"/>
+                            <constraint firstItem="iCR-T8-8J0" firstAttribute="top" secondItem="sRK-m4-XE0" secondAttribute="top" constant="14" id="gHf-4Y-7iW"/>
+                            <constraint firstItem="iCR-T8-8J0" firstAttribute="centerX" secondItem="sRK-m4-XE0" secondAttribute="centerX" id="i6D-iw-5r7"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="sRK-m4-XE0"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="yQP-jR-Vxh">
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="KaQ-ei-ZNM">
+                            <connections>
+                                <action selector="doneButtonPressed:" destination="Gpr-8f-En6" id="qy0-XC-748"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="artistBioTextView" destination="zec-gh-k3D" id="t3S-zj-obi"/>
+                        <outlet property="artistImageView" destination="iCR-T8-8J0" id="LEO-gk-Og3"/>
+                        <outlet property="artistNameLabel" destination="lcJ-Jw-3r1" id="6xw-13-28D"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1NO-yr-i22" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3588" y="-672.41379310344837"/>
+        </scene>
+        <!--Lyr Assist Nav Controller-->
+        <scene sceneID="1LL-Dr-8kb">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="559-kC-evs" customClass="lyrAssistNavController" customModule="lyrIQa" customModuleProvider="target" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="7wI-7c-GBI">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Gpr-8f-En6" kind="relationship" relationship="rootViewController" id="usO-xx-x7l"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DjG-07-WTW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2648.8000000000002" y="-672.41379310344837"/>
         </scene>
     </scenes>
 </document>
