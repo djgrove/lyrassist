@@ -1,0 +1,61 @@
+{
+    "_meta": {
+        "hash": {
+            "sha256": "b9c1bae77aa0c22a1d369b88e373e1f5f2de97753ff9c81dedcdde76eafcf1df"
+        },
+        "host-environment-markers": {
+            "implementation_name": "cpython",
+            "implementation_version": "0",
+            "os_name": "posix",
+            "platform_machine": "x86_64",
+            "platform_python_implementation": "CPython",
+            "platform_release": "18.2.0",
+            "platform_system": "Darwin",
+            "platform_version": "Darwin Kernel Version 18.2.0: Mon Nov 12 20:24:46 PST 2018; root:xnu-4903.231.4~2/RELEASE_X86_64",
+            "python_full_version": "2.7.10",
+            "python_version": "2.7",
+            "sys_platform": "darwin"
+        },
+        "pipfile-spec": 6,
+        "requires": {},
+        "sources": [
+            {
+                "name": "pypi",
+                "url": "https://pypi.python.org/simple",
+                "verify_ssl": true
+            }
+        ]
+    },
+    "default": {
+        "backports.functools-lru-cache": {
+            "hashes": [
+                "sha256:f0b0e4eba956de51238e17573b7087e852dfe9854afd2e9c873f73fc0ca0a6dd",
+                "sha256:9d98697f088eb1b0fa451391f91afb5e3ebde16bbdb272819fd091151fda4f1a"
+            ],
+            "markers": "python_version < '3'",
+            "version": "==1.5"
+        },
+        "beautifulsoup4": {
+            "hashes": [
+                "sha256:ba6d5c59906a85ac23dadfe5c88deaf3e179ef565f4898671253e50a78680718",
+                "sha256:034740f6cb549b4e932ae1ab975581e6103ac8f942200a0e9759065984391858",
+                "sha256:945065979fb8529dd2f37dbb58f00b661bdbcbebf954f93b32fdf5263ef35348"
+            ],
+            "version": "==4.7.1"
+        },
+        "bs4": {
+            "hashes": [
+                "sha256:36ecea1fd7cc5c0c6e4a1ff075df26d50da647b75376626cc186e2212886dd3a"
+            ],
+            "version": "==0.0.1"
+        },
+        "soupsieve": {
+            "hashes": [
+                "sha256:afa56bf14907bb09403e5d15fbed6275caa4174d36b975226e3b67a3bb6e2c4b",
+                "sha256:eaed742b48b1f3e2d45ba6f79401b2ed5dc33b2123dfe216adb90d4bfa0ade26"
+            ],
+            "version": "==1.8"
+        }
+    },
+    "develop": {}
+}
