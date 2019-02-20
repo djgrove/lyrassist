@@ -6,7 +6,7 @@ import { AboutComponent } from './about/about.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent},
-  { path: 'create/:artist', component: CreateComponent, pathMatch: 'full'},
+  { path: 'create/:artist_id', component: CreateComponent, pathMatch: 'full'},
   { path: 'about', component: AboutComponent},
 ];
 
