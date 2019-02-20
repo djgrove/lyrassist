@@ -8,20 +8,20 @@ import { DataService } from '../data.service';
   styleUrls: ['./create.component.scss']
 })
 export class CreateComponent implements OnInit {
-  artistURL : string
-  lyrics : Object
+  artistID : string
+  artist : Object
 
   constructor(private route: ActivatedRoute, private data: DataService) {}
 
   ngOnInit() {
     // get the artist name url parameter from the router
     this.route.paramMap.subscribe(params => {
-      this.artistURL = params.get('artist')
+      this.artistID = params.get('artist_id')
     });
 
     // request lyrics for this artist from our REST API
-    this.data.getLyrics(this.artistURL).subscribe(data => {
-      this.lyrics = data.data;
+    this.data.getLyrics(this.artistID).subscribe(data => {
+      this.artist = data
     })
   }
 
