@@ -1,5 +1,9 @@
-<h1>{{ artistURL }}</h1>
-
-<p style="white-space: pre;">
-{{ lyrics }}
-</p>
+<div class="avatar">
+    <img [src]="artist.photo">
+</div>
+<h1 class="title">{{ artist.name }}</h1>
+<div class="content">
+    <p>
+        {{ artist.lyrics }}
+    </p>
+</div>

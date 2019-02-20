@@ -1,0 +1,4 @@
+selenium==3.141.0
+beautifulsoup4==4.7.1
+boto3==1.9.96
+firebase-admin==2.15.1

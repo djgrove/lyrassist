@@ -6,7 +6,7 @@ We will be adding artists on an ongoing basis as more tools are added to the sit
 <p>Click an artist below to get started:</p>
 
 <ul *ngIf="artists">
-  <a *ngFor="let artist of artists.data" [routerLink]="['create', artist.url_name]"><li>
+  <a *ngFor="let artist of artists.data" [routerLink]="['create', artist.artist_id]"><li>
     <img [src]="artist.avatar">
     <p>{{ artist.name }} </p>
   </li></a>
