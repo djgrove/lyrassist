@@ -9,11 +9,11 @@ export class DataService {
   constructor(private http: HttpClient) { }
 
   getArtists() {
-    return this.http.get('https://1iou0tajke.execute-api.us-east-2.amazonaws.com/prod/list')
+    return this.http.get('https://ffpy6gqw9j.execute-api.us-west-1.amazonaws.com/prod/list')
   }
 
-  getLyrics(artist : string) {
-    return this.http.get<{data: string[]}>('https://1iou0tajke.execute-api.us-east-2.amazonaws.com/prod/generate?artist=' + artist)
+  getLyrics(artistID : string) {
+    return this.http.get<{data: string[]}>('https://1iou0tajke.execute-api.us-east-2.amazonaws.com/prod/generate?artist=' + artistID)
   }
 
 }
