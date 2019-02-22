@@ -9,8 +9,8 @@
 import UIKit
 
 protocol ArtistDelegate {
-    func updateArtistSong(id: Int, withSong: String)
-    func updateArtistImage(id: Int, withImage: UIImage)
+    func updateArtistSong(id: String, withSong: String)
+    func updateArtistImage(id: String, withImage: UIImage)
 }
 
 class ArtistViewController: UIViewController {
@@ -62,7 +62,7 @@ class ArtistViewController: UIViewController {
             if let data = data, let image = UIImage(data: data) {
                 //Update Data Model
                 this.artist?.avatarImage = image
-                this.artistDelegate?.updateArtistImage(id: this.artist!.id!, withImage: image)
+                this.artistDelegate?.updateArtistImage(id: this.artist!.id, withImage: image)
                 
                 //Update Nav Bar UI for info button
                 DispatchQueue.main.async {
@@ -81,16 +81,18 @@ class ArtistViewController: UIViewController {
                 do {
                     let json = try JSONSerialization.jsonObject(with: data, options: [])
                     if let jsonData = json as? [String:Any] {
-                        if let song = jsonData["data"] as? String {
+                        if let song = jsonData["lyrics"] as? String {
                             DispatchQueue.main.async {
                                 this.songTextView.text = song
                             }
-                            this.artistDelegate?.updateArtistSong(id: this.artist!.id!, withSong: song)
+                            this.artistDelegate?.updateArtistSong(id: this.artist!.id, withSong: song)
                         }
                         else {
-//                            preconditionFailure("Could not get song from json for \(artist.name)")
-                        }
+                            throw LyrAssistError.lyricsParseError(artist: this.artist!.name)                        }
                     }
+                }
+                catch LyrAssistError.lyricsParseError(let artist) {
+                    print("Parsing Error: Could not parse lyrics for \(artist)")
                 }
                 catch let jsonError {
                     fatalError(jsonError.localizedDescription)
