@@ -16,7 +16,6 @@ class ArtistsTableViewController: UITableViewController, ArtistDelegate {
 
     var artists = [Artist]()
     var components = URLComponents()
-    var idCount = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,7 +28,7 @@ class ArtistsTableViewController: UITableViewController, ArtistDelegate {
     // MARK: - Network Functions
     func getArtists() {
         components.scheme = "https"
-        components.host = "1iou0tajke.execute-api.us-east-2.amazonaws.com"
+        components.host = "ffpy6gqw9j.execute-api.us-west-1.amazonaws.com"
         components.path = "/prod/list"
         
         guard let url = components.url else {
@@ -41,29 +40,26 @@ class ArtistsTableViewController: UITableViewController, ArtistDelegate {
             guard let this = self else { return }
             
             if let data = data {
-                //                print(String(decoding: data, as: UTF8.self))
+//                print(String(decoding: data, as: UTF8.self))
                 do {
                     let decoder = JSONDecoder()
-                    decoder.keyDecodingStrategy = .convertFromSnakeCase
                     let artistResponse = try decoder.decode(ArtistListResponse.self, from: data)
                     var artistComponents = URLComponents(url: this.components.url!, resolvingAgainstBaseURL: false)
                     artistComponents?.path = "/prod/generate"
                     for jsonArtist in artistResponse.data {
-                        artistComponents?.queryItems = [URLQueryItem(name: "artist", value: jsonArtist.urlName)]
+                        artistComponents?.queryItems = [URLQueryItem(name: "artist", value: jsonArtist.id)]
                         guard let artistURL = artistComponents?.url else {
                             preconditionFailure("Failed to construct artistURL for \(jsonArtist.name)")
                         }
-                        let artist = Artist(id: this.idCount,
+                        let artist = Artist(id: jsonArtist.id,
                                             name: jsonArtist.name,
-                                            urlName: jsonArtist.urlName,
                                             url: artistURL.absoluteString,
                                             avatarURL: jsonArtist.avatarURL,
                                             avatarImage: nil,
                                             song: nil)
                         this.artists.append(artist)
-                        this.idCount += 1
                     }
-                    //                    print(this.artists)
+//                    print(this.artists)
                     this.artists = this.artists.sorted(by: { $0.name < $1.name })
                     DispatchQueue.main.async {
                         this.tableView.reloadData()
@@ -119,7 +115,7 @@ class ArtistsTableViewController: UITableViewController, ArtistDelegate {
     
     // MARK: Artist Delegate
     
-    func updateArtistSong(id: Int, withSong song: String) {
+    func updateArtistSong(id: String, withSong song: String) {
         if let index = self.artists.firstIndex(where: { $0.id == id }) {
             self.artists[index].song = song
         }
@@ -128,7 +124,7 @@ class ArtistsTableViewController: UITableViewController, ArtistDelegate {
         }
     }
     
-    func updateArtistImage(id: Int, withImage image: UIImage) {
+    func updateArtistImage(id: String, withImage image: UIImage) {
         if let index = self.artists.firstIndex(where: { $0.id == id }) {
             self.artists[index].avatarImage = image
         }

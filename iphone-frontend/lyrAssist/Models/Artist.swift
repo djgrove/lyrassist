@@ -9,16 +9,16 @@ import UIKit
 import Foundation
 
 struct Artist: Codable {
-    var id: Int?
+    var id: String
     var name: String
-    var urlName: String
     var url: String?
     var avatarURL: String?
     var avatarImage: UIImage?
     var song: String?
     
     enum CodingKeys: String, CodingKey {
-        case id, name, url, song, urlName
+        case name, url, song
+        case id = "artist_id"
         case avatarURL = "avatar"
     }
 }
