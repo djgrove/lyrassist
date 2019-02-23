@@ -56,7 +56,8 @@ class ArtistsTableViewController: UITableViewController, ArtistDelegate {
                                             url: artistURL.absoluteString,
                                             avatarURL: jsonArtist.avatarURL,
                                             avatarImage: nil,
-                                            song: nil)
+                                            song: nil,
+                                            bio: nil)
                         this.artists.append(artist)
                     }
 //                    print(this.artists)
@@ -115,9 +116,14 @@ class ArtistsTableViewController: UITableViewController, ArtistDelegate {
     
     // MARK: Artist Delegate
     
-    func updateArtistSong(id: String, withSong song: String) {
+    func updateArtistInfo(id: String, withSong song: String?, withBio bio: String?) {
         if let index = self.artists.firstIndex(where: { $0.id == id }) {
-            self.artists[index].song = song
+            if let song = song {
+                self.artists[index].song = song
+            }
+            if let bio = bio {
+                self.artists[index].bio = bio
+            }
         }
         else {
             print("Artist lookup failed in updateArtistSong.")
