@@ -9,7 +9,7 @@
 import UIKit
 
 protocol ArtistDelegate {
-    func updateArtistSong(id: String, withSong: String)
+    func updateArtistInfo(id: String, withSong: String?, withBio: String?)
     func updateArtistImage(id: String, withImage: UIImage)
 }
 
@@ -28,6 +28,8 @@ class ArtistViewController: UIViewController {
         
         if let artist = artist {
             self.navigationItem.title = artist.name
+            
+            // Artist Image
             if artist.avatarImage != nil {
                 self.navigationItem.rightBarButtonItem?.isEnabled = true
             }
@@ -35,12 +37,13 @@ class ArtistViewController: UIViewController {
                 downloadArtistImage(url: avatarURL)
             }
             
+            //Artist Lyrics
             if let song = artist.song {
                 self.songTextView.text = song
             }
             else {
                 if let urlStr = artist.url, let url = URL(string: urlStr) {
-                    downloadArtistSong(url: url)
+                    downloadArtist(url: url)
                 }
                 else {
                     fatalError("Received invalid url for artist: \(artist.name)")
@@ -73,7 +76,7 @@ class ArtistViewController: UIViewController {
         avatarTask.resume()
     }
     
-    func downloadArtistSong(url: URL) {
+    func downloadArtist(url: URL) {
         let songTask = URLSession.shared.dataTask(with: url) {
             [weak self] data, response, error in
             guard let this = self else { return }
@@ -81,18 +84,32 @@ class ArtistViewController: UIViewController {
                 do {
                     let json = try JSONSerialization.jsonObject(with: data, options: [])
                     if let jsonData = json as? [String:Any] {
-                        if let song = jsonData["lyrics"] as? String {
+                        //Lyrics
+                        let song = jsonData["lyrics"] as? String
+                        if let song = song {
                             DispatchQueue.main.async {
                                 this.songTextView.text = song
                             }
-                            this.artistDelegate?.updateArtistSong(id: this.artist!.id, withSong: song)
                         }
                         else {
-                            throw LyrAssistError.lyricsParseError(artist: this.artist!.name)                        }
+                            throw LAError.ParseError(subject: "lyrics", artist: this.artist!.name)
+                        }
+                        
+                        //Bio
+                        let bio = jsonData["bio"] as? String
+                        if let bio = bio {
+                            this.artist!.bio = bio
+                        }
+                        else {
+                            throw LAError.ParseError(subject: "bio", artist: this.artist!.name)
+                        }
+                        
+                        //Update
+                        this.artistDelegate?.updateArtistInfo(id: this.artist!.id, withSong: song, withBio: bio)
                     }
                 }
-                catch LyrAssistError.lyricsParseError(let artist) {
-                    print("Parsing Error: Could not parse lyrics for \(artist)")
+                catch LAError.ParseError(let subject, let artist) {
+                    print("Parsing Error: Could not parse \(subject) for \(artist)")
                 }
                 catch let jsonError {
                     fatalError(jsonError.localizedDescription)

@@ -8,6 +8,6 @@
 
 import Foundation
 
-enum LyrAssistError: Error {
-    case lyricsParseError(artist: String)
+enum LAError: Error {
+    case ParseError(subject: String, artist: String)
 }
