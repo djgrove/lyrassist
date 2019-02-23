@@ -15,9 +15,10 @@ struct Artist: Codable {
     var avatarURL: String?
     var avatarImage: UIImage?
     var song: String?
+    var bio: String?
     
     enum CodingKeys: String, CodingKey {
-        case name, url, song
+        case name, url, song, bio
         case id = "artist_id"
         case avatarURL = "avatar"
     }
