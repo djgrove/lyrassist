@@ -6,6 +6,7 @@
 //  Copyright © 2019 Austin McInnis. All rights reserved.
 //
 
+import SafariServices
 import UIKit
 
 class ArtistBioViewController: UIViewController {
@@ -71,9 +72,10 @@ class ArtistBioViewController: UIViewController {
     }
     
     @IBAction func readMoreOnLastFM(_ sender: UIButton) {
-        print("Lastfm button pressed.")
-        
-        // TODO: Link button to lastFM website.
+        if let url = lastFMUrl {
+            let lastFMWebVC = SFSafariViewController(url: url)
+            present(lastFMWebVC, animated: true, completion: nil)
+        }
     }
     
     fileprivate func resize(textView: UITextView) {
