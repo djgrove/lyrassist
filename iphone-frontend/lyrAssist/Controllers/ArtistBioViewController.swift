@@ -13,12 +13,12 @@ class ArtistBioViewController: UIViewController {
     @IBOutlet var artistBioTextView: UITextView!
     @IBOutlet var artistImageView: UIImageView!
     @IBOutlet var artistNameLabel: UILabel!
-    @IBOutlet var lastFMButton: UIButton!
+    @IBOutlet var lastFMButton: LAButton!
     
     var artist: Artist?
     var lastFMUrl: URL? {
         didSet {
-            guard let url = lastFMUrl else {
+            guard lastFMUrl != nil else {
                 lastFMButton.isHidden = true
                 print("lastFMUrl set to nil.")
                 return
@@ -31,12 +31,9 @@ class ArtistBioViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
-        self.navigationController?.navigationBar.barTintColor = UIColor.lyrLightRed
-        self.lastFMButton.tintColor = .white
-        self.lastFMButton.backgroundColor = UIColor.lyrLightRed
-        self.lastFMButton.layer.cornerRadius = 4
+        navigationController?.navigationBar.barTintColor = UIColor.lyrLightRed
         
         if let artist = artist {
             artistNameLabel.text = artist.name
