@@ -13,15 +13,27 @@ class ArtistCell: UITableViewCell {
 }
 
 class ArtistsTableViewController: UITableViewController, ArtistDelegate {
-
+    
     var artists = [Artist]()
     var components = URLComponents()
+    var filteredArtists = [Artist]()
+    let searchController = UISearchController(searchResultsController: nil)
+    let searchFooter = LASearchFooterView()
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //Navigation Bar
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "Back", style: .plain, target: nil, action: nil)
         
+        //Search Bar
+        setupSearchBar()
+        
+        //Network Calls
         getArtists()
     }
     
@@ -76,7 +88,7 @@ class ArtistsTableViewController: UITableViewController, ArtistDelegate {
 
     }
 
-    // MARK: - Table view data source
+    // MARK: - TableView Data Source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
@@ -84,8 +96,13 @@ class ArtistsTableViewController: UITableViewController, ArtistDelegate {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return self.artists.count
+        if isFiltering() {
+            searchFooter.setIsFilteringToShow(filteredItemCount: filteredArtists.count, of: artists.count)
+            return filteredArtists.count
+        }
+        
+        searchFooter.setNotFiltering()
+        return artists.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -93,24 +110,32 @@ class ArtistsTableViewController: UITableViewController, ArtistDelegate {
             fatalError("The dequeued cell is not an instance of ArtistCell")
         }
         
-        let artist = self.artists[indexPath.row]
+        let artist: Artist
+        if isFiltering() {
+            artist = filteredArtists[indexPath.row]
+        }
+        else {
+            artist = artists[indexPath.row]
+        }
         cell.artist = artist
         cell.textLabel?.text = artist.name
         
         return cell
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "ArtistSelected" {
-            if let artistVC = segue.destination as? ArtistViewController {
-                if let cell = sender as? ArtistCell {
-                    if let artistId = cell.artist?.id {
-                        let index = self.artists.firstIndex(where: { $0.id == artistId })
-                        artistVC.artist = self.artists[index!]
-                        artistVC.artistDelegate = self
-                    }
-                }
-            }
+    // MARK: - TableView Delegate
+    
+    override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        return searchFooter
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 30
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if searchController.isActive {
+            searchController.searchBar.endEditing(true)
         }
     }
     
@@ -137,5 +162,63 @@ class ArtistsTableViewController: UITableViewController, ArtistDelegate {
         else {
             print("Artist lookup failed in updateArtistImage.")
         }
+    }
+    
+    // MARK: Search Functions
+    
+    private func setupSearchBar() {
+        //Setup
+        navigationItem.hidesSearchBarWhenScrolling = false
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        tableView.tableFooterView = searchFooter
+        
+        //Style
+        let searchBar = searchController.searchBar
+        searchBar.placeholder = "Search Artists"
+        searchBar.tintColor = .white
+        // TODO: Fix appearance of search bar
+        
+        navigationItem.searchController = searchController
+        definesPresentationContext = true
+    }
+    
+    private func searchBarIsEmpty() -> Bool {
+        return searchController.searchBar.text?.isEmpty ?? true
+    }
+    
+    private func filterContentForSearchText(searchText: String, scope: String = "All") {
+        filteredArtists = artists.filter({ (artist) -> Bool in
+            return artist.name.lowercased().contains(searchText.lowercased())
+        })
+        
+        tableView.reloadData()
+    }
+    
+    private func isFiltering() -> Bool {
+        return searchController.isActive && !searchBarIsEmpty()
+    }
+    
+    // MARK: - Navigation
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ArtistSelected" {
+            if let artistVC = segue.destination as? ArtistViewController {
+                if let cell = sender as? ArtistCell {
+                    if let artistId = cell.artist?.id {
+                        let index = self.artists.firstIndex(where: { $0.id == artistId })
+                        artistVC.artist = self.artists[index!]
+                        artistVC.artistDelegate = self
+                    }
+                }
+            }
+        }
+    }
+}
+
+extension ArtistsTableViewController: UISearchResultsUpdating {
+    // MARK: - UISearchResultsUpdatingDelegate
+    func updateSearchResults(for searchController: UISearchController) {
+        filterContentForSearchText(searchText: searchController.searchBar.text!)
     }
 }

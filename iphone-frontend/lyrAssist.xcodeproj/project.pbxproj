@@ -16,10 +16,11 @@
 		D5614DC221FEA9F5007FD9B2 /* lyriqa.json in Resources */ = {isa = PBXBuildFile; fileRef = D5614DC121FEA9F5007FD9B2 /* lyriqa.json */; };
 		D5614DC421FEABA6007FD9B2 /* ArtistsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5614DC321FEABA6007FD9B2 /* ArtistsTableViewController.swift */; };
 		D5614DC821FEDFAD007FD9B2 /* ArtistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5614DC721FEDFAD007FD9B2 /* ArtistViewController.swift */; };
+		D57D077B22238F5200671CCD /* LASearchFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D57D077A22238F5200671CCD /* LASearchFooterView.swift */; };
 		D5F963B82215F9BF0028C697 /* lyrAssistNavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5F963B72215F9BF0028C697 /* lyrAssistNavController.swift */; };
 		D5F963BA2215FE1E0028C697 /* Artist.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5F963B92215FE1E0028C697 /* Artist.swift */; };
 		D5F963BF221629D90028C697 /* ArtistBioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5F963BE221629D90028C697 /* ArtistBioViewController.swift */; };
-		D5F963C2221639090028C697 /* lyrAssistColorScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5F963C1221639090028C697 /* lyrAssistColorScheme.swift */; };
+		D5F963C2221639090028C697 /* LAColorScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5F963C1221639090028C697 /* LAColorScheme.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,10 +35,11 @@
 		D5614DC121FEA9F5007FD9B2 /* lyriqa.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = lyriqa.json; sourceTree = "<group>"; };
 		D5614DC321FEABA6007FD9B2 /* ArtistsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistsTableViewController.swift; sourceTree = "<group>"; };
 		D5614DC721FEDFAD007FD9B2 /* ArtistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistViewController.swift; sourceTree = "<group>"; };
+		D57D077A22238F5200671CCD /* LASearchFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LASearchFooterView.swift; sourceTree = "<group>"; };
 		D5F963B72215F9BF0028C697 /* lyrAssistNavController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = lyrAssistNavController.swift; sourceTree = "<group>"; };
 		D5F963B92215FE1E0028C697 /* Artist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Artist.swift; sourceTree = "<group>"; };
 		D5F963BE221629D90028C697 /* ArtistBioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistBioViewController.swift; sourceTree = "<group>"; };
-		D5F963C1221639090028C697 /* lyrAssistColorScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = lyrAssistColorScheme.swift; sourceTree = "<group>"; };
+		D5F963C1221639090028C697 /* LAColorScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LAColorScheme.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 			children = (
 				D5F963C0221638BE0028C697 /* Style */,
 				D5095B2E2220E14E00FCEDC5 /* LAButton.swift */,
+				D57D077A22238F5200671CCD /* LASearchFooterView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -115,7 +118,7 @@
 		D5F963C0221638BE0028C697 /* Style */ = {
 			isa = PBXGroup;
 			children = (
-				D5F963C1221639090028C697 /* lyrAssistColorScheme.swift */,
+				D5F963C1221639090028C697 /* LAColorScheme.swift */,
 			);
 			path = Style;
 			sourceTree = "<group>";
@@ -198,8 +201,9 @@
 				D5095B2F2220E14E00FCEDC5 /* LAButton.swift in Sources */,
 				D5F963BA2215FE1E0028C697 /* Artist.swift in Sources */,
 				D5F963BF221629D90028C697 /* ArtistBioViewController.swift in Sources */,
+				D57D077B22238F5200671CCD /* LASearchFooterView.swift in Sources */,
 				D5614DC821FEDFAD007FD9B2 /* ArtistViewController.swift in Sources */,
-				D5F963C2221639090028C697 /* lyrAssistColorScheme.swift in Sources */,
+				D5F963C2221639090028C697 /* LAColorScheme.swift in Sources */,
 				D5095B2C2220814D00FCEDC5 /* LAError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

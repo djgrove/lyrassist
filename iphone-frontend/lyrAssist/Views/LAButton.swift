@@ -22,7 +22,7 @@ class LAButton: UIButton {
     
     fileprivate func setupButton() {
         tintColor = .white
-        backgroundColor = UIColor.lyrLightRed
+        backgroundColor = UIColor.LALightRed
         layer.cornerRadius = 3
         
         let insetValue = CGFloat(5.0)
