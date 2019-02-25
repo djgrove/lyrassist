@@ -19,7 +19,7 @@ class lyrAssistNavController: UINavigationController {
 
     func setupNavBarStyle() {
         let navBar = self.navigationBar
-        navBar.barTintColor = UIColor.lyrBurgundy
+        navBar.barTintColor = UIColor.LABurgundy
         navBar.tintColor = .white
         navBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
     }
