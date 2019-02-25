@@ -34,7 +34,7 @@ class ArtistBioViewController: UIViewController {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
-        navigationController?.navigationBar.barTintColor = UIColor.lyrLightRed
+        navigationController?.navigationBar.barTintColor = UIColor.LALightRed
         
         if let artist = artist {
             artistNameLabel.text = artist.name
