@@ -42,6 +42,7 @@ class ArtistBioViewController: UIViewController {
                 artistImageView.image = image
             }
             if let bio = artist.bio {
+//                print("'\(bio)'")
                 setupBio(bio: bio)
             }
         }
@@ -61,10 +62,17 @@ class ArtistBioViewController: UIViewController {
                     //Update url to trigger button in UI
                     let urlStr = String(describing: link)
                     this.lastFMUrl = URL(string: urlStr)
-                    let linkIndex = unescapedBio.index(unescapedBio.startIndex, offsetBy: range.location)
-                    DispatchQueue.main.async {
-                        this.artistBioTextView.text = String(unescapedBio[unescapedBio.startIndex..<linkIndex])
-                        this.resize(textView: this.artistBioTextView)
+                    
+                    // TODO: Verify with more bios. Basing linkIndex position on '<' character instead of range.
+//                    let linkIndex = unescapedBio.index(unescapedBio.startIndex, offsetBy: range.location)
+                    if let linkIndex = unescapedBio.firstIndex(where: { (char) -> Bool in
+                        return char == "<"
+                    }) {
+//                        print(linkIndex)
+                        DispatchQueue.main.async {
+                            this.artistBioTextView.text = String(unescapedBio[unescapedBio.startIndex..<linkIndex])
+                            this.resize(textView: this.artistBioTextView)
+                        }
                     }
                 }
             }

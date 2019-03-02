@@ -82,6 +82,7 @@ class ArtistViewController: UIViewController {
             guard let this = self else { return }
             if let data = data{
                 do {
+//                    print(String(decoding: data, as: UTF8.self))
                     let json = try JSONSerialization.jsonObject(with: data, options: [])
                     if let jsonData = json as? [String:Any] {
                         //Lyrics
