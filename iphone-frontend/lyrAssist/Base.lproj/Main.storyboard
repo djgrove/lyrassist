@@ -68,7 +68,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Loading..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Fao-Ev-zos">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Loading..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Fao-Ev-zos">
                                 <rect key="frame" x="0.0" y="64" width="375" height="559"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -124,7 +124,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LGL-6J-LLr" customClass="LAButton" customModule="lyrAssist" customModuleProvider="target">
-                                <rect key="frame" x="97" y="516" width="146" height="30"/>
+                                <rect key="frame" x="114" y="516" width="146" height="30"/>
                                 <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
                                 <state key="normal" title="Read more on last.fm"/>
                                 <connections>
@@ -140,7 +140,7 @@
                             <constraint firstItem="sRK-m4-XE0" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="LGL-6J-LLr" secondAttribute="trailing" symbolic="YES" id="Cm3-Te-0VT"/>
                             <constraint firstItem="zec-gh-k3D" firstAttribute="top" secondItem="lcJ-Jw-3r1" secondAttribute="bottom" constant="8.5" id="Ha6-PB-d0K"/>
                             <constraint firstItem="iCR-T8-8J0" firstAttribute="centerX" secondItem="lcJ-Jw-3r1" secondAttribute="centerX" id="I3T-wZ-rmN"/>
-                            <constraint firstItem="LGL-6J-LLr" firstAttribute="leading" secondItem="sRK-m4-XE0" secondAttribute="leading" constant="97" id="NTR-E9-xYZ"/>
+                            <constraint firstItem="LGL-6J-LLr" firstAttribute="leading" secondItem="sRK-m4-XE0" secondAttribute="leading" constant="114" id="NTR-E9-xYZ"/>
                             <constraint firstItem="lcJ-Jw-3r1" firstAttribute="centerX" secondItem="sRK-m4-XE0" secondAttribute="centerX" id="WLO-mq-kNe"/>
                             <constraint firstItem="LGL-6J-LLr" firstAttribute="top" secondItem="zec-gh-k3D" secondAttribute="bottom" constant="15" id="d0S-lL-TXB"/>
                             <constraint firstItem="iCR-T8-8J0" firstAttribute="top" secondItem="sRK-m4-XE0" secondAttribute="top" constant="14" id="gHf-4Y-7iW"/>

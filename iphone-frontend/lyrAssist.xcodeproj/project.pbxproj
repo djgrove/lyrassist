@@ -13,7 +13,6 @@
 		D549DB3F21EE9964007E8D5F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D549DB3D21EE9964007E8D5F /* Main.storyboard */; };
 		D549DB4121EE9966007E8D5F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D549DB4021EE9966007E8D5F /* Assets.xcassets */; };
 		D549DB4421EE9966007E8D5F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D549DB4221EE9966007E8D5F /* LaunchScreen.storyboard */; };
-		D5614DC221FEA9F5007FD9B2 /* lyriqa.json in Resources */ = {isa = PBXBuildFile; fileRef = D5614DC121FEA9F5007FD9B2 /* lyriqa.json */; };
 		D5614DC421FEABA6007FD9B2 /* ArtistsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5614DC321FEABA6007FD9B2 /* ArtistsTableViewController.swift */; };
 		D5614DC821FEDFAD007FD9B2 /* ArtistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5614DC721FEDFAD007FD9B2 /* ArtistViewController.swift */; };
 		D57D077B22238F5200671CCD /* LASearchFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D57D077A22238F5200671CCD /* LASearchFooterView.swift */; };
@@ -32,7 +31,6 @@
 		D549DB4021EE9966007E8D5F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D549DB4321EE9966007E8D5F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D549DB4521EE9966007E8D5F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D5614DC121FEA9F5007FD9B2 /* lyriqa.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = lyriqa.json; sourceTree = "<group>"; };
 		D5614DC321FEABA6007FD9B2 /* ArtistsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistsTableViewController.swift; sourceTree = "<group>"; };
 		D5614DC721FEDFAD007FD9B2 /* ArtistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistViewController.swift; sourceTree = "<group>"; };
 		D57D077A22238F5200671CCD /* LASearchFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LASearchFooterView.swift; sourceTree = "<group>"; };
@@ -89,7 +87,6 @@
 				D5095B2D2220E0EC00FCEDC5 /* Views */,
 				D549DB4021EE9966007E8D5F /* Assets.xcassets */,
 				D549DB4221EE9966007E8D5F /* LaunchScreen.storyboard */,
-				D5614DC121FEA9F5007FD9B2 /* lyriqa.json */,
 				D549DB4521EE9966007E8D5F /* Info.plist */,
 			);
 			path = lyrAssist;
@@ -182,7 +179,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				D549DB4421EE9966007E8D5F /* LaunchScreen.storyboard in Resources */,
-				D5614DC221FEA9F5007FD9B2 /* lyriqa.json in Resources */,
 				D549DB4121EE9966007E8D5F /* Assets.xcassets in Resources */,
 				D549DB3F21EE9964007E8D5F /* Main.storyboard in Resources */,
 			);
