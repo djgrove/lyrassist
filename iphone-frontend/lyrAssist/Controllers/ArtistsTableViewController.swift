@@ -139,6 +139,12 @@ class ArtistsTableViewController: UITableViewController, ArtistDelegate {
         }
     }
     
+    override func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        if searchController.isActive {
+            searchController.searchBar.endEditing(true)
+        }
+    }
+    
     // MARK: Artist Delegate
     
     func updateArtistInfo(id: String, withSong song: String?, withBio bio: String?) {
@@ -177,7 +183,8 @@ class ArtistsTableViewController: UITableViewController, ArtistDelegate {
         let searchBar = searchController.searchBar
         searchBar.placeholder = "Search Artists"
         searchBar.tintColor = .white
-        // TODO: Fix appearance of search bar
+        // TODO: Custom Bar style for search bar?
+        searchBar.barStyle = .blackTranslucent
         
         navigationItem.searchController = searchController
         definesPresentationContext = true
