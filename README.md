@@ -70,8 +70,11 @@ We will be working on developing a test suite soon.
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
 
-## Acknowledgments/Notes
+## Additional Notes
+* This project is entirely non-profit and it will remain that way.
+### Acknowledgements
 * [Genius](https://genius.com)
 * [Last.fm](https://last.fm)
-* This project is entirely non-profit and it will remain that way.
-* We've deployed to the www. subdomain as opposed to a naked "lyrassist.app" domain, based on the rationale provided [here](https://www.jackkinsella.ie/articles/www-vs-naked-domain) and [here](https://www.jackkinsella.ie/articles/www-vs-naked-domain). 
+### Documentation/References Followed
+* We've deployed to the "www" subdomain as opposed to a naked "lyrassist.app" domain, based on the rationale provided [here](https://www.jackkinsella.ie/articles/www-vs-naked-domain) and [here](https://www.jackkinsella.ie/articles/www-vs-naked-domain). 
+* HTTPS was enabled via an Amazon Certificate Manager (ACM) SSL cert and and AWS CloudFront distribution CDN using a guide followed [here](https://rynop.com/2017/04/20/howto-serve-angular2-app-from-s3-and-cloudfront-with-free-https/)
