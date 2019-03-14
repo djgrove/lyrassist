@@ -74,3 +74,4 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 * [Genius](https://genius.com)
 * [Last.fm](https://last.fm)
 * This project is entirely non-profit and it will remain that way.
+* We've deployed to the www. subdomain as opposed to a naked "lyrassist.app" domain, based on the rationale provided [here](https://www.jackkinsella.ie/articles/www-vs-naked-domain) and [here](https://www.jackkinsella.ie/articles/www-vs-naked-domain). 
