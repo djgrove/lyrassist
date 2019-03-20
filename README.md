@@ -1,6 +1,6 @@
 # LyrAssist
 
-LyrAssist is a lyrics generation tool that uses a Markov chain to 
+LyrAssist is a web app that uses a Markov Chain model to produce song lyrics in the style of a particular artist.
 
 ## Getting Started
 
