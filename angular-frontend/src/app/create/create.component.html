@@ -1,9 +1,9 @@
 <div class="avatar">
-    <img [src]="artist.photo">
+    <img ng-if="photoURL" [src]="photoURL">
 </div>
-<h1 class="title">{{ artist.name }}</h1>
+<h1 class="title">{{ artistName }}</h1>
 <div class="content">
     <p>
-        {{ artist.lyrics }}
+        {{ lyrics }}
     </p>
 </div>

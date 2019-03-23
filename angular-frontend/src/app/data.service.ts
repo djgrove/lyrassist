@@ -13,7 +13,6 @@ export class DataService {
   }
 
   getLyrics(artistID : string) {
-    return this.http.get<{data: string[]}>('https://1iou0tajke.execute-api.us-east-2.amazonaws.com/prod/generate?artist=' + artistID)
+    return this.http.get<{data: string[]}>('https://ffpy6gqw9j.execute-api.us-west-1.amazonaws.com/prod/generate?artist=' + artistID)
   }
-
 }

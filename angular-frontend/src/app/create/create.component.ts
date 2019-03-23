@@ -9,7 +9,9 @@ import { DataService } from '../data.service';
 })
 export class CreateComponent implements OnInit {
   artistID : string
-  artist : Object
+  artistName : string
+  photoURL : string
+  lyrics : string
 
   constructor(private route: ActivatedRoute, private data: DataService) {}
 
@@ -21,7 +23,9 @@ export class CreateComponent implements OnInit {
 
     // request lyrics for this artist from our REST API
     this.data.getLyrics(this.artistID).subscribe(data => {
-      this.artist = data
+      this.artistName = data['name']
+      this.lyrics = data['lyrics']
+      this.photoURL = data['photo']
     })
   }
 
