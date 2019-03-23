@@ -28,5 +28,4 @@ export class CreateComponent implements OnInit {
       this.photoURL = data['photo']
     })
   }
-
 }
