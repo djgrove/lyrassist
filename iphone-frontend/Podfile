@@ -7,5 +7,7 @@ target 'lyrAssist' do
 
   # Pods for lyrAssist
   pod 'Firebase/Core'
-
+  pod 'FirebaseUI/Auth'
+  pod 'FirebaseUI/Email'
+  
 end

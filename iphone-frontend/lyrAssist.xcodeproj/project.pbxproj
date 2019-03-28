@@ -18,6 +18,7 @@
 		D5614DC821FEDFAD007FD9B2 /* ArtistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5614DC721FEDFAD007FD9B2 /* ArtistViewController.swift */; };
 		D57D077B22238F5200671CCD /* LASearchFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D57D077A22238F5200671CCD /* LASearchFooterView.swift */; };
 		D5AA31D8224C09B0000DD74A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D5AA31D7224C09B0000DD74A /* GoogleService-Info.plist */; };
+		D5AA31DC224C1995000DD74A /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5AA31DB224C1995000DD74A /* WelcomeViewController.swift */; };
 		D5F963B82215F9BF0028C697 /* lyrAssistNavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5F963B72215F9BF0028C697 /* lyrAssistNavController.swift */; };
 		D5F963BA2215FE1E0028C697 /* Artist.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5F963B92215FE1E0028C697 /* Artist.swift */; };
 		D5F963BF221629D90028C697 /* ArtistBioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5F963BE221629D90028C697 /* ArtistBioViewController.swift */; };
@@ -40,6 +41,7 @@
 		D5614DC721FEDFAD007FD9B2 /* ArtistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistViewController.swift; sourceTree = "<group>"; };
 		D57D077A22238F5200671CCD /* LASearchFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LASearchFooterView.swift; sourceTree = "<group>"; };
 		D5AA31D7224C09B0000DD74A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		D5AA31DB224C1995000DD74A /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		D5F963B72215F9BF0028C697 /* lyrAssistNavController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = lyrAssistNavController.swift; sourceTree = "<group>"; };
 		D5F963B92215FE1E0028C697 /* Artist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Artist.swift; sourceTree = "<group>"; };
 		D5F963BE221629D90028C697 /* ArtistBioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistBioViewController.swift; sourceTree = "<group>"; };
@@ -135,6 +137,7 @@
 				D5614DC321FEABA6007FD9B2 /* ArtistsTableViewController.swift */,
 				D5614DC721FEDFAD007FD9B2 /* ArtistViewController.swift */,
 				D5F963B72215F9BF0028C697 /* lyrAssistNavController.swift */,
+				D5AA31DB224C1995000DD74A /* WelcomeViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -159,6 +162,7 @@
 				D549DB3321EE9964007E8D5F /* Frameworks */,
 				D549DB3421EE9964007E8D5F /* Resources */,
 				4C284FD9AA2234EBEE542462 /* [CP] Embed Pods Frameworks */,
+				5511748D569FDF278192E73D /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -181,6 +185,7 @@
 				TargetAttributes = {
 					D549DB3521EE9964007E8D5F = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1020;
 					};
 				};
 			};
@@ -242,17 +247,39 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-lyrAssist/Pods-lyrAssist-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-lyrAssist/Pods-lyrAssist-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5511748D569FDF278192E73D /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-lyrAssist/Pods-lyrAssist-resources.sh",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseAuthUI.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseEmailAuthUI.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseAuthUI.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseEmailAuthUI.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-lyrAssist/Pods-lyrAssist-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -264,6 +291,7 @@
 			files = (
 				D5614DC421FEABA6007FD9B2 /* ArtistsTableViewController.swift in Sources */,
 				D549DB3A21EE9964007E8D5F /* AppDelegate.swift in Sources */,
+				D5AA31DC224C1995000DD74A /* WelcomeViewController.swift in Sources */,
 				D5F963B82215F9BF0028C697 /* lyrAssistNavController.swift in Sources */,
 				D5095B2F2220E14E00FCEDC5 /* LAButton.swift in Sources */,
 				D5F963BA2215FE1E0028C697 /* Artist.swift in Sources */,
@@ -427,7 +455,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = amcinnis.lyrAssist;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -446,7 +474,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = amcinnis.lyrAssist;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

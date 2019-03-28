@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="CCx-20-as0">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="CCx-20-as0">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -42,6 +42,53 @@
             </objects>
             <point key="canvasLocation" x="1068" y="-672"/>
         </scene>
+        <!--Welcome View Controller-->
+        <scene sceneID="Leu-85-KMq">
+            <objects>
+                <viewController id="pIn-QF-Aee" customClass="WelcomeViewController" customModule="lyrAssist" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="483-2c-0Q0">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="lyrAssist" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="It3-gI-sMx">
+                                <rect key="frame" x="155.5" y="112" width="64" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Im7-Xa-sR8">
+                                <rect key="frame" x="152" y="161" width="71" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O3K-3v-spj">
+                                <rect key="frame" x="168" y="325" width="38" height="30"/>
+                                <state key="normal" title="Login">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="login:" destination="pIn-QF-Aee" eventType="touchUpInside" id="KwU-f9-Gc0"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.49803921568627452" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="Im7-Xa-sR8" firstAttribute="top" secondItem="483-2c-0Q0" secondAttribute="top" constant="161" id="2os-ZE-zv3"/>
+                            <constraint firstItem="eTG-yi-rca" firstAttribute="bottom" secondItem="O3K-3v-spj" secondAttribute="bottom" constant="312" id="Y6r-mu-jVF"/>
+                            <constraint firstItem="O3K-3v-spj" firstAttribute="leading" secondItem="eTG-yi-rca" secondAttribute="leading" constant="168" id="YzK-xG-1F7"/>
+                            <constraint firstItem="It3-gI-sMx" firstAttribute="centerX" secondItem="eTG-yi-rca" secondAttribute="centerX" id="bW0-WN-3K6"/>
+                            <constraint firstItem="Im7-Xa-sR8" firstAttribute="top" secondItem="It3-gI-sMx" secondAttribute="bottom" constant="28" id="jJW-YY-v1N"/>
+                            <constraint firstItem="Im7-Xa-sR8" firstAttribute="centerX" secondItem="eTG-yi-rca" secondAttribute="centerX" id="kKM-LI-ITz"/>
+                            <constraint firstItem="Im7-Xa-sR8" firstAttribute="centerX" secondItem="O3K-3v-spj" secondAttribute="centerX" id="rl8-wx-gN9"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="eTG-yi-rca"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EsC-gH-ON7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="198" y="-1371"/>
+        </scene>
         <!--Lyr Assist Nav Controller-->
         <scene sceneID="qjc-kg-uCA">
             <objects>
@@ -54,6 +101,7 @@
                     <nil name="viewControllers"/>
                     <connections>
                         <segue destination="Ihh-LO-tRb" kind="relationship" relationship="rootViewController" id="9Ff-uJ-rdK"/>
+                        <segue destination="pIn-QF-Aee" kind="presentation" identifier="presentWelcome" id="7Nt-YR-gD5"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3qE-Ac-TzD" userLabel="First Responder" sceneMemberID="firstResponder"/>
