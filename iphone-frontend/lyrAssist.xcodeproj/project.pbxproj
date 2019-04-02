@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		376C2735A086D69EF6C8CF31 /* Pods_lyrAssist.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B7B003D98508638031D4438 /* Pods_lyrAssist.framework */; };
 		D5095B2C2220814D00FCEDC5 /* LAError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5095B2B2220814D00FCEDC5 /* LAError.swift */; };
 		D5095B2F2220E14E00FCEDC5 /* LAButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5095B2E2220E14E00FCEDC5 /* LAButton.swift */; };
 		D549DB3A21EE9964007E8D5F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D549DB3921EE9964007E8D5F /* AppDelegate.swift */; };
@@ -16,6 +17,9 @@
 		D5614DC421FEABA6007FD9B2 /* ArtistsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5614DC321FEABA6007FD9B2 /* ArtistsTableViewController.swift */; };
 		D5614DC821FEDFAD007FD9B2 /* ArtistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5614DC721FEDFAD007FD9B2 /* ArtistViewController.swift */; };
 		D57D077B22238F5200671CCD /* LASearchFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D57D077A22238F5200671CCD /* LASearchFooterView.swift */; };
+		D5AA31D8224C09B0000DD74A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D5AA31D7224C09B0000DD74A /* GoogleService-Info.plist */; };
+		D5AA31DC224C1995000DD74A /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5AA31DB224C1995000DD74A /* WelcomeViewController.swift */; };
+		D5AA31DE224CAB42000DD74A /* LALightRedNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5AA31DD224CAB42000DD74A /* LALightRedNavigationController.swift */; };
 		D5F963B82215F9BF0028C697 /* lyrAssistNavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5F963B72215F9BF0028C697 /* lyrAssistNavController.swift */; };
 		D5F963BA2215FE1E0028C697 /* Artist.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5F963B92215FE1E0028C697 /* Artist.swift */; };
 		D5F963BF221629D90028C697 /* ArtistBioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5F963BE221629D90028C697 /* ArtistBioViewController.swift */; };
@@ -23,6 +27,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4B7B003D98508638031D4438 /* Pods_lyrAssist.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_lyrAssist.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		90B48E779F8A067E896E0923 /* Pods-lyrAssist.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lyrAssist.release.xcconfig"; path = "Pods/Target Support Files/Pods-lyrAssist/Pods-lyrAssist.release.xcconfig"; sourceTree = "<group>"; };
+		BCF9E52FDFBEED9C07DB0E7F /* Pods-lyrAssist.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lyrAssist.debug.xcconfig"; path = "Pods/Target Support Files/Pods-lyrAssist/Pods-lyrAssist.debug.xcconfig"; sourceTree = "<group>"; };
 		D5095B2B2220814D00FCEDC5 /* LAError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LAError.swift; sourceTree = "<group>"; };
 		D5095B2E2220E14E00FCEDC5 /* LAButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LAButton.swift; sourceTree = "<group>"; };
 		D549DB3621EE9964007E8D5F /* lyrAssist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = lyrAssist.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -34,6 +41,9 @@
 		D5614DC321FEABA6007FD9B2 /* ArtistsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistsTableViewController.swift; sourceTree = "<group>"; };
 		D5614DC721FEDFAD007FD9B2 /* ArtistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistViewController.swift; sourceTree = "<group>"; };
 		D57D077A22238F5200671CCD /* LASearchFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LASearchFooterView.swift; sourceTree = "<group>"; };
+		D5AA31D7224C09B0000DD74A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		D5AA31DB224C1995000DD74A /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		D5AA31DD224CAB42000DD74A /* LALightRedNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LALightRedNavigationController.swift; sourceTree = "<group>"; };
 		D5F963B72215F9BF0028C697 /* lyrAssistNavController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = lyrAssistNavController.swift; sourceTree = "<group>"; };
 		D5F963B92215FE1E0028C697 /* Artist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Artist.swift; sourceTree = "<group>"; };
 		D5F963BE221629D90028C697 /* ArtistBioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistBioViewController.swift; sourceTree = "<group>"; };
@@ -45,12 +55,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				376C2735A086D69EF6C8CF31 /* Pods_lyrAssist.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1D9E50B7CCF746AF685476CE /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				BCF9E52FDFBEED9C07DB0E7F /* Pods-lyrAssist.debug.xcconfig */,
+				90B48E779F8A067E896E0923 /* Pods-lyrAssist.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		3D2F3C007206CB2BDD2CBB02 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4B7B003D98508638031D4438 /* Pods_lyrAssist.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		D5095B2D2220E0EC00FCEDC5 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -66,6 +94,8 @@
 			children = (
 				D549DB3821EE9964007E8D5F /* lyrAssist */,
 				D549DB3721EE9964007E8D5F /* Products */,
+				1D9E50B7CCF746AF685476CE /* Pods */,
+				3D2F3C007206CB2BDD2CBB02 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -88,6 +118,7 @@
 				D549DB4021EE9966007E8D5F /* Assets.xcassets */,
 				D549DB4221EE9966007E8D5F /* LaunchScreen.storyboard */,
 				D549DB4521EE9966007E8D5F /* Info.plist */,
+				D5AA31D7224C09B0000DD74A /* GoogleService-Info.plist */,
 			);
 			path = lyrAssist;
 			sourceTree = "<group>";
@@ -108,6 +139,8 @@
 				D5614DC321FEABA6007FD9B2 /* ArtistsTableViewController.swift */,
 				D5614DC721FEDFAD007FD9B2 /* ArtistViewController.swift */,
 				D5F963B72215F9BF0028C697 /* lyrAssistNavController.swift */,
+				D5AA31DD224CAB42000DD74A /* LALightRedNavigationController.swift */,
+				D5AA31DB224C1995000DD74A /* WelcomeViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -127,9 +160,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D549DB4821EE9966007E8D5F /* Build configuration list for PBXNativeTarget "lyrAssist" */;
 			buildPhases = (
+				4908642A9D1632CEE1965982 /* [CP] Check Pods Manifest.lock */,
 				D549DB3221EE9964007E8D5F /* Sources */,
 				D549DB3321EE9964007E8D5F /* Frameworks */,
 				D549DB3421EE9964007E8D5F /* Resources */,
+				4C284FD9AA2234EBEE542462 /* [CP] Embed Pods Frameworks */,
+				5511748D569FDF278192E73D /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -152,6 +188,7 @@
 				TargetAttributes = {
 					D549DB3521EE9964007E8D5F = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1020;
 					};
 				};
 			};
@@ -179,12 +216,76 @@
 			buildActionMask = 2147483647;
 			files = (
 				D549DB4421EE9966007E8D5F /* LaunchScreen.storyboard in Resources */,
+				D5AA31D8224C09B0000DD74A /* GoogleService-Info.plist in Resources */,
 				D549DB4121EE9966007E8D5F /* Assets.xcassets in Resources */,
 				D549DB3F21EE9964007E8D5F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4908642A9D1632CEE1965982 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-lyrAssist-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4C284FD9AA2234EBEE542462 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-lyrAssist/Pods-lyrAssist-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-lyrAssist/Pods-lyrAssist-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5511748D569FDF278192E73D /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-lyrAssist/Pods-lyrAssist-resources.sh",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseAuthUI.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseEmailAuthUI.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseAuthUI.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseEmailAuthUI.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-lyrAssist/Pods-lyrAssist-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		D549DB3221EE9964007E8D5F /* Sources */ = {
@@ -193,6 +294,8 @@
 			files = (
 				D5614DC421FEABA6007FD9B2 /* ArtistsTableViewController.swift in Sources */,
 				D549DB3A21EE9964007E8D5F /* AppDelegate.swift in Sources */,
+				D5AA31DC224C1995000DD74A /* WelcomeViewController.swift in Sources */,
+				D5AA31DE224CAB42000DD74A /* LALightRedNavigationController.swift in Sources */,
 				D5F963B82215F9BF0028C697 /* lyrAssistNavController.swift in Sources */,
 				D5095B2F2220E14E00FCEDC5 /* LAButton.swift in Sources */,
 				D5F963BA2215FE1E0028C697 /* Artist.swift in Sources */,
@@ -344,6 +447,7 @@
 		};
 		D549DB4921EE9966007E8D5F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BCF9E52FDFBEED9C07DB0E7F /* Pods-lyrAssist.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -355,13 +459,14 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = amcinnis.lyrAssist;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
 		D549DB4A21EE9966007E8D5F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 90B48E779F8A067E896E0923 /* Pods-lyrAssist.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -373,7 +478,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = amcinnis.lyrAssist;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

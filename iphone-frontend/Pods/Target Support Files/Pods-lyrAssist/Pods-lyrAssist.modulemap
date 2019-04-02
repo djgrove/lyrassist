@@ -1,0 +1,6 @@
+framework module Pods_lyrAssist {
+  umbrella header "Pods-lyrAssist-umbrella.h"
+
+  export *
+  module * { export * }
+}

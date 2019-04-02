@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
+	<string>ca-app-pub-3940256099942544/2934735716</string>
+	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
+	<string>ca-app-pub-3940256099942544/4411468910</string>
+	<key>CLIENT_ID</key>
+	<string>1035798715973-0rd6n4in585r81flu0bvfbjesheo57eb.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.1035798715973-0rd6n4in585r81flu0bvfbjesheo57eb</string>
+	<key>API_KEY</key>
+	<string>AIzaSyD6raPX2e4AWbQzC0s9kWXLf6vU5zaEKmE</string>
+	<key>GCM_SENDER_ID</key>
+	<string>1035798715973</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>amcinnis.lyrAssist</string>
+	<key>PROJECT_ID</key>
+	<string>lyrassist-f665f</string>
+	<key>STORAGE_BUCKET</key>
+	<string>lyrassist-f665f.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<true></true>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<false></false>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:1035798715973:ios:f64e90aaec0a8fee</string>
+	<key>DATABASE_URL</key>
+	<string>https://lyrassist-f665f.firebaseio.com</string>
+</dict>
+</plist>

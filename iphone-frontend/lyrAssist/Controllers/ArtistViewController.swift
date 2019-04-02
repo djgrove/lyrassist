@@ -138,7 +138,7 @@ class ArtistViewController: UIViewController {
     
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let navVC = segue.destination as? lyrAssistNavController {
+        if let navVC = segue.destination as? LALightRedNavigationController {
             if let bioViewController = navVC.topViewController as? ArtistBioViewController {
                 bioViewController.artist = artist                
             }
