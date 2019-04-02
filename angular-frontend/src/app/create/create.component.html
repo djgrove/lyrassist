@@ -1,7 +1,7 @@
 <div class="avatar">
-    <img ng-if="photoURL" [src]="photoURL">
+    <img ng-if="artist.photo" [src]="artist.photo">
 </div>
-<h1 class="title">{{ artistName }}</h1>
+<h1 class="title">{{ artist.name }}</h1>
 <div class="content">
     <p>
         {{ lyrics }}

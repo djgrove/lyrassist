@@ -8,6 +8,10 @@ export class DataService {
 
   constructor(private http: HttpClient) { }
 
+  getArtist(artistID : string) {
+    return this.http.get<{data: string[]}>('https://ffpy6gqw9j.execute-api.us-west-1.amazonaws.com/prod/get?artist=' + artistID)
+  }
+
   getArtists() {
     return this.http.get('https://ffpy6gqw9j.execute-api.us-west-1.amazonaws.com/prod/list')
   }
