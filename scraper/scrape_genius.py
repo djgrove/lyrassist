@@ -1,5 +1,5 @@
 # Standard Python libraries
-import requests, time, json, re
+import requests, time, json, re, yaml
 
 # Scraping tools
 from bs4 import BeautifulSoup
@@ -16,8 +16,42 @@ from firebase_admin import firestore
 
 SONG_REQUEST_DELAY = 1
 
-def getLastFMBio(artist):
-    return "placeholder"
+"""
+Validates if an artist already exists in our database
+
+:param firebaseDB: a Firebase Cloud Firestore client object
+:param artistName: the name of the artist we are trying to add -- it is assumed that this WILL be unique for each artist even though it isn't a primary key
+:returns: the ID of the artist if they exist, otherwise None
+"""
+def getLastFMData(artistName):
+    conf = yaml.load(open('credentials.yml'))
+    apiKey = conf['lastfm_api']['key']
+
+    response = requests.get("https://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=" + artistName + "&api_key=" + apiKey +"&format=json")
+    data = json.loads(response.content)
+
+    return {
+        'photo': data['artist']['image'][2]['#text'],
+        'bio': data['artist']['bio']['summary']
+    }
+
+"""
+Validates if an artist already exists in our database
+
+:param firebaseDB: a Firebase Cloud Firestore client object
+:param artistName: the name of the artist we are trying to add -- it is assumed that this WILL be unique for each artist even though it isn't a primary key
+:returns: the ID of the artist if they exist, otherwise None
+"""
+def artistExists(firebaseDB, artistName):
+    artistID = None
+    artistsRef = firebaseDB.collection('artists')
+
+    # check if the generator returned by the firestore query hast anything in it
+    for artist in artistsRef.where("name", "==", artistName).get():
+        artistID = artist.id
+        break
+    
+    return artistID
 
 """
 This function will use Selenium to perform the tricky logic of accessing JavaScript controlled album info, and grab all links
@@ -25,41 +59,46 @@ This function will use Selenium to perform the tricky logic of accessing JavaScr
 :param artist: the full name of an artist to be added to the collection
 :returns: the ID of the artist in our firebase database
 """
-def addArtisttoDB(artist):
+def addArtisttoDB(artistName):
+    data = {}
+    artistRef = None
     # use a service account to authenticate
     cred = credentials.Certificate('credentials.json')
     firebase_admin.initialize_app(cred)
     db = firestore.client()
 
-    # check if the artist exists and has been modified recently
-    #results = db.orderByChild('name').equalTo(artist)
-    #if db.orderByChild('name').equalTo(artist):
-       #return results[0].id
+    # check if the artist has already been added to our database
+    artistID = artistExists(db, artistName)
+    if artistID is None:
+        lastFM = getLastFMData(artistName)
+        data.update({
+            'name': artistName,
+            'bio': lastFM['bio'],
+            'photo': lastFM['photo'],
+        })
 
-    # set the fields
-    data = {
-        'name': artist,
-        'bio': getLastFMBio(artist)
-    }
+        # create a new artist and get key
+        artistRef = db.collection('artists').document()
+    else:
+        # get the ref to the already existing artist
+        artistRef = db.collection('artists').document(artistID)
 
-    # create a new artist and get key
-    firebase_ref = db.collection(u'artists').document()
-    firebase_ref.set(data)
-    artist_id = firebase_ref.id
+    data.update({'last_updated': firestore.SERVER_TIMESTAMP})
+    artistRef.set(data)
 
-    return artist_id
+    return artistRef.id
 
 """
 This function will use Selenium to perform the tricky logic of accessing JavaScript controlled album info, and grab all links
 
 :param artist_name: an artist to scrape lyrics for, entered at the command line
-:returns: a list of valid album lioks for the top Genius artist result for provided artist
+:returns: a list of valid album URLs for the top Genius artist result for provided artist
 """
-def getArtistAlbumLinks(artist_name):
+def getArtistAlbumLinks(artistName):
     mybrowser = webdriver.Chrome("./chromedriver") # Browser and path to Web driver you wish to automate your tests cases.
-    artist_sanitized = artist_name.replace(" ","+")
-    base_url = "https://genius.com/search?q="+artist_sanitized # Append User_Input to search query
-    mybrowser.get(base_url) # Open in browser
+    artistSanitized = artistName.replace(" ","+")
+    baseURL = "https://genius.com/search?q=" + artistSanitized # Append User_Input to search query
+    mybrowser.get(baseURL) # Open in browser
 
     # wait for the ad to load so it doesn't f up your click
     time.sleep(2)
@@ -140,11 +179,10 @@ Scrapes an artist's lyrics collection from Genius.com,
 :param song_link: the full URL path for the desired song
 """
 def main():
-    user_input = input("Enter Artist Name = ") # User_Input = Artist Name
+    artistName = input("Enter Artist Name = ") # User_Input = Artist Name
+    artistID = addArtisttoDB(artistName)
 
-    artist_id = addArtisttoDB(user_input)
-
-    albums = getArtistAlbumLinks(user_input)
+    albums = getArtistAlbumLinks(artistName)
     markov = {'<START>': []}
 
     # go through each song in each album and add it to the markov model
@@ -155,15 +193,6 @@ def main():
             addSongToMarkov(song['href'], markov)
             time.sleep(SONG_REQUEST_DELAY)
 
-    uploadMarkovModel(markov, artist_id)
+    uploadMarkovModel(markov, artistID)
 
 main()
-
-'''
-cred = credentials.Certificate('credentials.json')
-firebase_admin.initialize_app(cred)
-db = firestore.client()
-artists = db.collection('artists').get()
-
-for artist in artists:
-    print(artist.id)'''
