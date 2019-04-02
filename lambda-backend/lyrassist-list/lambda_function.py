@@ -1,30 +1,24 @@
-import json, botocore, boto3, os
+import json, botocore, boto3
 from botocore.vendored import requests
-#import firebase_admin
-#from firebase_admin import credentials
-#from firebase_admin import firestore
 
 def lambda_handler(event, context):
-    '''cred = credentials.Certificate('credentials.json')
-    firebase_admin.initialize_app(cred)
-    db = firestore.client()
-    
-    artists = db.collection('artists').get()'''
     res = requests.get('https://firestore.googleapis.com/v1beta1/projects/lyrassist-f665f/databases/(default)/documents/artists')
 
     artists = res.json()['documents']
 
-    artists_list = []
+    artists_data = []
     
     for artist in artists:
-        artists_list+=[{
-            'artist_id' : artist['name'].split('/')[:-1],
+        artists_data+=[{
+            'artist_id' : artist['name'].split('/')[-1],
             'name' : artist['fields']['name']['stringValue'],
             'avatar' : artist['fields']['photo']['stringValue']
         }]
-    
+
+    # TODO: rm sort once artist lookup done via a search feature on frontend
+    artists_data.sort(key=lambda k: k['name'])
     
     return {
         'statusCode': 200,
-        'data': artists
+        'data': artists_data
     }

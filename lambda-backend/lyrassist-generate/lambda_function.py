@@ -2,18 +2,6 @@ import json, boto3, random
 import botocore
 from botocore.vendored import requests
 
-def getArtist(artist_id):
-    url = 'https://firestore.googleapis.com/v1beta1/projects/lyrassist-f665f/databases/(default)/documents/artists/' + artist_id
-    
-    res = requests.get(url)
-    data = res.json()
-    artist = {
-        'name': data['fields']['name']['stringValue'],
-        'photo': data['fields']['photo']['stringValue']
-    }
-    
-    return artist
-
 def lambda_handler(event, context):
     # get the artist name from query params
     artist_id = event["queryStringParameters"]['artist']
@@ -38,15 +26,11 @@ def lambda_handler(event, context):
         }
 
     lyrics = generateSong(markov_chain)
-    data = getArtist(artist_id)
 
     return {
         'statusCode': 200,
         'body': json.dumps({
-            'lyrics': lyrics,
-            'name': data['name'],
-            'photo': data['photo'],
-            'bio': 'placeholder'
+            'lyrics': lyrics
         }),
         # need this header to enable CORS manually since API gateway is using Lambda proxy integration
         'headers': {
@@ -81,7 +65,7 @@ def loadMarkovFromS3(s3, bucket_name, filepath):
 
     return chain
 
-
+# TODO: add formal song structure
 def generateSong(chain):
     words = []
     # generate the first word in the lyrics
