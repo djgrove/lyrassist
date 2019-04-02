@@ -1,6 +1,6 @@
 # Custom stuff
-credentials.json
-.vscode/
+credentials*
+.vscode
 
 # Created by https://www.gitignore.io/api/swift,angular,python,xcode,visualstudiocod
 # Edit at https://www.gitignore.io/?templates=swift,angular,python,xcode,visualstudiocod
