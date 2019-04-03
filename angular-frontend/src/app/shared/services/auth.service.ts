@@ -1,9 +1,9 @@
 import { Injectable, NgZone } from '@angular/core';
-import { User } from "../services/user";
+import { User } from '../services/user';
 import { auth } from 'firebase/app';
-import { AngularFireAuth } from "@angular/fire/auth";
+import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
-import { Router } from "@angular/router";
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +11,7 @@ import { Router } from "@angular/router";
 
 export class AuthService {
     userData: any; // Save logged in user data
-  
+
   // Inject Firestore service, Inject Firebase auth service, NgZone service to remove outside scope warning
   constructor(public afs: AngularFirestore, public afAuth: AngularFireAuth, public router: Router, public ngZone: NgZone ) {
     // Saving user data in local storage when logged in and setting up null when logged out
@@ -24,7 +24,7 @@ export class AuthService {
         localStorage.setItem('user', null);
         JSON.parse(localStorage.getItem('user'));
       }
-    })
+    });
   }
 
   // Sign in with email/password
@@ -36,8 +36,8 @@ export class AuthService {
 
       this.SetUserData(result.user);
     }).catch((error) => {
-      window.alert(error.message)
-    })
+      window.alert(error.message);
+    });
   }
 
   // Sign up with email/password
@@ -47,15 +47,15 @@ export class AuthService {
       this.SendVerificationMail();
       this.SetUserData(result.user);
     }).catch((error) => {
-      window.alert(error.message)
-    })
+      window.alert(error.message);
+    });
   }
 
   // Send email verfificaiton when new user sign up
   SendVerificationMail() {
     return this.afAuth.auth.currentUser.sendEmailVerification().then(() => {
       this.router.navigate(['verify-email-address']);
-    })
+    });
   }
 
   // Reset Forggot password
@@ -63,8 +63,8 @@ export class AuthService {
     return this.afAuth.auth.sendPasswordResetEmail(passwordResetEmail).then(() => {
       window.alert('Password reset email sent, check your inbox.');
     }).catch((error) => {
-      window.alert(error)
-    })
+      window.alert(error);
+    });
   }
 
   // Returns true when user is logged in and email is verified
@@ -83,15 +83,15 @@ export class AuthService {
     return this.afAuth.auth.signInWithPopup(provider).then((result) => {
       this.ngZone.run(() => {
         this.router.navigate(['dashboard']);
-      })
+      });
       this.SetUserData(result.user);
     }).catch((error) => {
-      window.alert(error)
-    })
+      window.alert(error);
+    });
   }
 
-  /* Setting up user data when sign in with username/password, 
-  sign up with username/password and sign in with social auth  
+  /* Setting up user data when sign in with username/password,
+  sign up with username/password and sign in with social auth
   provider in Firestore database using AngularFirestore + AngularFirestoreDocument service */
   SetUserData(user) {
     const userRef: AngularFirestoreDocument<any> = this.afs.doc(`users/${user.uid}`);
@@ -101,18 +101,18 @@ export class AuthService {
       displayName: user.displayName,
       photoURL: user.photoURL,
       emailVerified: user.emailVerified
-    }
-    
+    };
+
     return userRef.set(userData, {
       merge: true
-    })
+    });
   }
 
-  // Sign out 
+  // Sign out
   SignOut() {
     return this.afAuth.auth.signOut().then(() => {
       localStorage.removeItem('user');
         this.router.navigate(['sign-in']);
-    })
+    });
   }
 }

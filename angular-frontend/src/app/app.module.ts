@@ -1,11 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http'
-import { AngularFireModule } from '@angular/fire'
-import { AngularFireAuthModule } from '@angular/fire/auth'
-import { AngularFirestoreModule } from '@angular/fire/firestore'
+import { HttpClientModule } from '@angular/common/http';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
 
-import { AuthService } from './shared/services/auth.service'
+import { AuthService } from './shared/services/auth.service';
 
 import { AppRoutingModule } from './shared/routing/app-routing.module';
 import { AppComponent } from './app.component';
@@ -19,13 +19,13 @@ import { VerifyEmailComponent } from './components/verify-email/verify-email.com
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 import { ProfileComponent } from './components/profile/profile.component';
 
-var config = {
-  apiKey: "AIzaSyCmB5xmKjz_o9pB-zs9vkve0OMNVLOkqMY",
-  authDomain: "lyrassist-f665f.firebaseapp.com",
-  databaseURL: "https://lyrassist-f665f.firebaseio.com",
-  projectId: "lyrassist-f665f",
-  storageBucket: "lyrassist-f665f.appspot.com",
-  messagingSenderId: "1035798715973"
+let config = {
+  apiKey: 'AIzaSyCmB5xmKjz_o9pB-zs9vkve0OMNVLOkqMY',
+  authDomain: 'lyrassist-f665f.firebaseapp.com',
+  databaseURL: 'https://lyrassist-f665f.firebaseio.com',
+  projectId: 'lyrassist-f665f',
+  storageBucket: 'lyrassist-f665f.appspot.com',
+  messagingSenderId: '1035798715973'
 };
 
 @NgModule({
@@ -43,7 +43,7 @@ var config = {
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule, 
+    AppRoutingModule,
     HttpClientModule,
     AngularFireModule.initializeApp(config),
     AngularFireAuthModule,

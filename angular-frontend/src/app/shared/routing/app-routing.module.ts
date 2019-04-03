@@ -10,8 +10,8 @@ import { SignUpComponent } from '../../components/sign-up/sign-up.component';
 import { VerifyEmailComponent } from '../../components/verify-email/verify-email.component';
 import { ForgotPasswordComponent } from '../../components/forgot-password/forgot-password.component';
 // All protected routes go here
-import { AuthGuard } from "../../shared/guard/auth.guard";
-import { SecureInnerPagesGuard } from "../guard/secure-inner-pages.guard";
+import { AuthGuard } from '../../shared/guard/auth.guard';
+import { SecureInnerPagesGuard } from '../guard/secure-inner-pages.guard';
 import { ProfileComponent } from '../../components/profile/profile.component';
 
 
