@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
-import { DataService } from './data.service';
+import { AuthService } from './auth.service';
 
-describe('DataService', () => {
+describe('AuthService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: DataService = TestBed.get(DataService);
+    const service: AuthService = TestBed.get(AuthService);
     expect(service).toBeTruthy();
   });
 });
