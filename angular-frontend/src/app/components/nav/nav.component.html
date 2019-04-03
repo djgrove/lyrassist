@@ -5,6 +5,9 @@
       <ul>
         <li><a routerLink="/">Home</a></li>
         <li><a routerLink="/about">About</a></li>
+        <li *ngIf="authService.userData as user; else notShow"><a routerLink="/profile">Profile</a></li>
+        <ng-template #notShow><li><a routerLink="/sign-up">Login</a></li></ng-template>
+        <li *ngIf="authService.userData as user"><a routerLink="" (click)="authService.SignOut()">Logout</a></li>
       </ul>
     </nav>
   </div>
